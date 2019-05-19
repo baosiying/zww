@@ -1,0 +1,722 @@
+/**
+ * fullPage 2.4.6
+ * https://github.com/alvarotrigo/fullPage.js
+ * MIT licensed
+ *
+ * Copyright (C) 2013 alvarotrigo.com - A project by Alvaro Trigo
+ */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow:hidden;
+    font-family: PingFangSC-Light,helvetica neue,hiragino sans gb,arial,microsoft yahei ui,microsoft yahei,simsun,sans-serif;
+    /*Avoid flicker on slides transitions for mobile phones #336 */
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+a { text-decoration:none ;color:#333;}
+#superContainer {
+    height: 100%;
+    position: relative;
+
+    /* Touch detection for Windows 8 */
+    -ms-touch-action: none;
+
+    /* IE 11 on Windows Phone 8.1*/
+    touch-action: none;
+}
+.fp-section {
+    position: relative;
+    -webkit-box-sizing: border-box; /* Safari<=5 Android<=3 */
+    -moz-box-sizing: border-box; /* <=28 */
+    box-sizing: border-box;
+}
+.fp-slide {
+    float: left;
+}
+.fp-slide, .fp-slidesContainer {
+    height: 100%;
+    display: block;
+}
+.fp-slides {
+    z-index:1;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    -webkit-transition: all 0.3s ease-out; /* Safari<=6 Android<=4.3 */
+    transition: all 0.3s ease-out;
+}
+.fp-section.fp-table, .fp-slide.fp-table {
+    display: table;
+    table-layout:fixed;
+    width: 100%;
+}
+.fp-tableCell {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100vh !important;
+}
+.fp-slidesContainer {
+    float: left;
+    position: relative;
+}
+.fp-controlArrow {
+    position: absolute;
+    z-index: 4;
+    top: 50%;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    margin-top: -38px;
+}
+.fp-controlArrow.fp-prev {
+    left: 15px;
+    width: 0;
+    border-width: 38.5px 34px 38.5px 0;
+    border-color: transparent #fff transparent transparent;
+}
+.fp-controlArrow.fp-next {
+    right: 15px;
+    border-width: 38.5px 0 38.5px 34px;
+    border-color: transparent transparent transparent #fff;
+}
+.fp-scrollable {
+    overflow: scroll;
+
+}
+.fp-notransition {
+    -webkit-transition: none !important;
+    transition: none !important;
+}
+#fp-nav {
+    position: fixed;
+    z-index: 100;
+    margin-top: -32px;
+    top: 50%;
+    opacity: 1;
+}
+#fp-nav.right {
+    right: 17px;
+}
+#fp-nav.left {
+    left: 17px;
+}
+.fp-slidesNav{
+    position: absolute;
+    z-index: 4;
+    left: 50%;
+    opacity: 1;
+}
+.fp-slidesNav.bottom {
+    bottom: 17px;
+}
+.fp-slidesNav.top {
+    top: 17px;
+}
+#fp-nav ul,
+.fp-slidesNav ul {
+  margin: 0;
+  padding: 0;
+}
+#fp-nav ul li,
+.fp-slidesNav ul li {
+    display: block;
+    width: 14px;
+    height: 13px;
+    margin: 7px;
+    position:relative;
+}
+.fp-slidesNav ul li {
+    display: inline-block;
+}
+#fp-nav ul li a,
+.fp-slidesNav ul li a {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    text-decoration: none;
+}
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li a.active span {
+    background: #4b91f1;
+}
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+    top: 2px;
+    left: 2px;
+    width: 8px;
+    height: 8px; 
+    background: #d8d8d8;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+}
+#fp-nav ul li .fp-tooltip {
+    position: absolute;
+    top: -2px;
+    color: #fff;
+    font-size: 14px;
+    font-family: arial, helvetica, sans-serif;
+    font-weight:100-900|bold|bolder|lighter|normal;
+    font-weight: lighter !important;
+    white-space: nowrap;
+    max-width: 220px;
+    overflow: hidden;
+    display: block;
+    opacity: 0;
+    width: 0;
+}
+#fp-nav ul li:hover .fp-tooltip {
+    -webkit-transition: opacity 0.2s ease-in;
+    transition: opacity 0.2s ease-in;
+    width: auto;
+    opacity: 1;
+}
+#fp-nav ul li .fp-tooltip.right {
+    right: 20px;
+}
+#fp-nav ul li .fp-tooltip.left {
+    left: 20px;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.clear {
+    clear: both;
+}
+.clear-f {
+    overflow: hidden;
+}
+
+.top-title {
+    position:fixed;
+    margin:0 auto;
+    left:0; 
+    right:0; 
+    top:0; 
+    bottom:0;
+    width:998px;
+    height: 60px;
+    z-index: 999;
+}
+.content {
+    width: 998px;
+    height: 100%; 
+    margin: 0 auto;
+    background-size:998px;
+}
+.section-pc:nth-child(1) {
+    background: url("../../40/E9/CgqN3FoFYrWAeE2tAAFrIigb6bc693.jpg")/*tpa=https://static.wkanx.com/w001/M00/40/E9/CgqN3FoFYrWAeE2tAAFrIigb6bc693.jpg*/ repeat;
+    background-size: cover;
+    overflow: hidden;
+    background-position: 50% top; 
+}
+.section-pc:nth-child(2) {
+    background: url("../../40/E9/CgqN3FoFYuuAKyLOAACB8GmvBUs071.jpg")/*tpa=https://static.wkanx.com/w001/M00/40/E9/CgqN3FoFYuuAKyLOAACB8GmvBUs071.jpg*/ repeat; 
+    background-size: cover;
+    overflow: hidden;
+    background-position: 50% top; 
+}
+.section-pc:nth-child(3) {
+    background: url("../../40/E5/Cgp4R1oFY0KAfjNNAACfofi8pSQ947.jpg")/*tpa=https://static.wkanx.com/w001/M00/40/E5/Cgp4R1oFY0KAfjNNAACfofi8pSQ947.jpg*/ repeat; 
+    background-size: cover; 
+    overflow: hidden;
+    background-position: 50% top; 
+}
+.section-pc:nth-child(4) {
+    background: url("../../40/EA/CgqN3FoFY1iAF8aTAACjGdRwLcM090.jpg")/*tpa=https://static.wkanx.com/w001/M00/40/EA/CgqN3FoFY1iAF8aTAACjGdRwLcM090.jpg*/ repeat; 
+    background-size: cover; 
+    overflow: hidden;
+    background-position: 50% top; 
+}
+.section-pc:nth-child(5) {
+    background: url("../../40/E6/Cgp0RVoFY2eAL3rsAADE4Tf064k076.jpg")/*tpa=https://static.wkanx.com/w001/M00/40/E6/Cgp0RVoFY2eAL3rsAADE4Tf064k076.jpg*/ repeat; 
+    background-size: cover;
+    overflow: hidden;
+    background-position: 50% top; 
+}
+.top-logo {
+    position: relative;
+    height: 58px;
+    width: 58px;
+    background: url("../../40/E6/Cgp0RVoFZeeAc_vXAAADcSlAdo8132.png")/*tpa=https://static.wkanx.com/w001/M00/40/E6/Cgp0RVoFZeeAc_vXAAADcSlAdo8132.png*/ no-repeat;
+}
+/*.top-logo::after {
+    content: '逐浪小说';
+    color:#333;
+    font-size: 24px;
+    position: absolute;
+    top: 8px;
+    left: 60px;
+    width: 100px;
+}*/
+.top-logo-txt {
+    color:#333;
+    font-size: 24px;
+    position: absolute;
+    top: 8px;
+    left: 60px;
+    width: 100px;
+}
+.top-index {
+    position: absolute;
+    top: 8px;
+    right: 0px;
+    font-size: 24px;
+    color:#333;
+}
+.top-index a:hover {
+    cursor:pointer;
+    color:#508cee;
+}
+.content-main {
+    position: relative;
+    height: 30%;
+}
+.content-txts-pos {
+    position: absolute;
+    bottom:0;
+    left: 0;
+    right:0;
+}
+.cnotent-title {
+    position: relative;
+    top: -20px;
+    opacity: 0;
+    font-size: 60px;
+    text-align: center;
+    color:#333;
+    line-height: 60px;
+}
+.second-title {
+    position: relative; 
+    top: -20px;
+    opacity:0;
+    margin-top: 5%;
+    font-size: 60px;
+    text-align: center;
+    color:#333;
+    line-height: 60px;
+}
+.cnotent-brief {
+    position: relative;
+    top: -10px;
+    opacity:0;
+    font-size: 32px;
+    text-align:center;
+    color:#999;
+    line-height: 32px;
+    margin-top: 15px;
+}
+.second-brief {
+    position: relative;
+    top: -10px;
+    opacity:0;
+    font-size: 32px;
+    text-align:center;
+    color:#999;
+    line-height: 32px;
+    margin-top: 15px;
+}
+.color-change {
+    color:#508cee;
+}
+.code-bg {
+    height: 148px;
+    width: 148px;
+    background: url("../../40/E9/CgqN3FoFYeOAI74_AAARzgt-y20450.png")/*tpa=https://static.wkanx.com/w001/M00/40/E9/CgqN3FoFYeOAI74_AAARzgt-y20450.png*/ no-repeat;
+}
+.android-bg {
+    position: relative;
+    width: 196px;
+    height: 50px;
+    border:solid 2px #508cee;
+    border-radius: 50px;
+    color: #508cee; 
+}
+.android-bg:hover:before { 
+    background: url("../../40/E6/Cgp4R1oFZuiAArpPAAADfVy6uMc762.png")/*tpa=https://static.wkanx.com/w001/M00/40/E6/Cgp4R1oFZuiAArpPAAADfVy6uMc762.png*/ no-repeat; 
+    background-size: 35px 35px !important;
+}
+.android-bg:hover { 
+    color: #fff; 
+    background: #508cee;
+    cursor : pointer;
+}
+.android-bg:before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 20px;
+    width: 35px;
+    height: 35px;
+    background: url("../../40/E6/Cgp4R1oFZv6Aep25AAAD4db550I440.png")/*tpa=https://static.wkanx.com/w001/M00/40/E6/Cgp4R1oFZv6Aep25AAAD4db550I440.png*/ no-repeat;
+    background-size: 35px 35px;
+    background-position: cover;
+}
+.android-bg:after {
+    content: 'Android';
+    position: absolute;
+    top: 8px;
+    left: 65px;
+    font-size: 24px;
+}
+.iphone-bg {
+    position: relative;
+    width: 196px;
+    height: 50px;
+    border:solid 2px #508cee;
+    border-radius: 50px;
+    color: #508cee;
+    margin-top: 20px;
+}
+.iphone-bg:hover:before { 
+    background: url("../../40/E6/Cgp4R1oFZyqASAZdAAAEBkdOT7k114.png")/*tpa=https://static.wkanx.com/w001/M00/40/E6/Cgp4R1oFZyqASAZdAAAEBkdOT7k114.png*/ no-repeat; 
+    background-size: 35px 35px !important;
+}
+.iphone-bg:hover {
+    color: #fff; 
+    background: #508cee;
+    cursor : pointer;
+}
+.iphone-bg:before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 20px;
+    width: 35px;
+    height: 35px;
+    background: url("../../40/E7/Cgp0RVoFZxWAZee7AAAEaeZFUCU592.png")/*tpa=https://static.wkanx.com/w001/M00/40/E7/Cgp0RVoFZxWAZee7AAAEaeZFUCU592.png*/ no-repeat;
+    background-size: 35px 35px;
+    /*background-position: cover;*/
+}
+.iphone-bg:after {
+    content: 'iPhone';
+    position: absolute;
+    top: 8px;
+    left: 65px;
+    font-size: 24px;
+}
+.down-btns {
+    margin: 5px 0 0 20px;
+}
+.code-app {
+    /*margin: 10% auto 0 auto;*/
+    padding-top: 10%;
+    width: 375px;
+    height: 30%;
+    margin: 0 auto;
+}
+.bottom-bg {
+    width: 998px;
+    height: 30%; 
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+}
+.dolphin-img {
+    position: absolute;
+    bottom: 40%;
+    left: 75%;
+    opacity:0;
+}
+.second-img {
+    margin-top: 5%;
+} 
+.img-height {
+    height: 60%;
+    overflow: hidden;
+}
+.bottom-txt {
+    font-size: 16px;
+    color:#999;
+    margin-top: 10px; 
+    bottom: 0;
+}
+.fifth-title {
+    position: relative;
+    font-size: 60px;
+    text-align: center;
+    color:#333;
+    line-height: 60px;
+}
+.fotter-txt {
+    position: absolute;
+    left: 0; 
+    height: 100px;
+    line-height: 100px;
+    width: 100%;
+    background-color: #fff;
+    color:#999;
+    font-size: 16px;
+    opacity: 0;
+}
+
+/*h5*/
+.section-title { 
+    position: relative;
+    top:-.2rem;
+    opacity: .5;
+    font-size: .6rem;
+    color:#333;
+    line-height: .6rem;
+    height: .6rem;
+    padding-top: 1.4rem;
+}
+.section-title-txt {
+    position: relative;
+    top:-.2rem;
+    opacity: .5;
+    font-size: .32rem;
+    color:#999;
+    height: .32rem;
+    line-height: .32rem;
+    margin-top: .2rem;
+}
+.fadeinmove {
+    animation: fadeInDown .5s linear both; 
+    -moz-animation: fadeInDown .5s linear both;
+    -webkit-animation: fadeInDown .5s linear both;
+    -o-animation: fadeInDown .5s linear both;
+}
+@keyframes fadeInDown
+{
+0%{ transform: translate(0,0);opacity: .6;} 
+100%{ transform: translate(0,6px);opacity: 1;}
+}
+
+@-moz-keyframes fadeInDown
+{
+0%{ transform: translate(0,0);opacity: .6;} 
+100%{ transform: translate(0,6px);opacity: 1;}
+}
+
+@-webkit-keyframes fadeInDown
+{
+0%{ transform: translate(0,0);opacity: .6;} 
+100%{ transform: translate(0,6px);opacity: 1;}
+}
+
+@-o-keyframes fadeInDown
+{
+0%{ transform: translate(0,0);opacity: .6;} 
+100%{ transform: translate(0,6px);opacity: 1;}
+}
+
+.down-btn {
+    width: 50%;
+    height: .8rem;
+    line-height: .8rem;
+    font-size: .32rem;
+    color:#fff;
+    background-color: #508cee;
+    margin: 0 auto;
+    border-radius: 50px;
+    margin-top: .3rem;
+}
+.logo-content {
+    padding: 1.5rem 0;
+}
+.phoine1 {
+    margin-top: .8rem;
+}
+.section-h5:nth-child(1) { 
+    background: url("../../40/EA/CgqN3FoFZEmAJsbwAAFdJ3AV1VQ790.jpg")/*tpa=https://static.wkanx.com/w001/M00/40/EA/CgqN3FoFZEmAJsbwAAFdJ3AV1VQ790.jpg*/ repeat;
+    background-size: 100% 100%;
+    background-size: cover;
+    overflow: hidden;
+}
+.section-h5:nth-child(2) {
+    background: url("../../40/E6/Cgp0RVoFZFSADWJlAADLvDdBc8A368.jpg")/*tpa=https://static.wkanx.com/w001/M00/40/E6/Cgp0RVoFZFSADWJlAADLvDdBc8A368.jpg*/ repeat;
+    background-size: 100% 100%;
+    background-size: cover;
+    overflow: hidden;
+}
+.section-h5:nth-child(3) {
+    background: url("../../40/EA/CgqN3FoFZF2AbhyPAACPw_DfVq8645.jpg")/*tpa=https://static.wkanx.com/w001/M00/40/EA/CgqN3FoFZF2AbhyPAACPw_DfVq8645.jpg*/ repeat;
+    background-size: 100% 100%;
+    background-size: cover;
+    overflow: hidden;
+}
+.section-h5:nth-child(4) {
+    background: url("../../40/E6/Cgp0RVoFZGWARH-BAACpzN-wsh0102.jpg")/*tpa=https://static.wkanx.com/w001/M00/40/E6/Cgp0RVoFZGWARH-BAACpzN-wsh0102.jpg*/ repeat;
+    background-size: 100% 100%;
+    background-size: cover;
+    overflow: hidden;
+}
+.section-h5:nth-child(5) {
+    background: url("../../40/E6/Cgp4R1oFZG2Ae27sAABQYy9k9kY015.jpg")/*tpa=https://static.wkanx.com/w001/M00/40/E6/Cgp4R1oFZG2Ae27sAABQYy9k9kY015.jpg*/ repeat;
+    background-size: 100% 100%;
+    background-size: cover;
+    overflow: hidden;
+} 
+.next-pagebg {
+    position: absolute;
+    bottom: .3rem;
+    height: .8rem;
+    left: 3.35rem;
+    right: 0;
+    width: .8rem;
+    background: url("../../40/E5/Cgp4R1oFY7mAWwvRAAABTmbqpjU335.png")/*tpa=https://static.wkanx.com/w001/M00/40/E5/Cgp4R1oFY7mAWwvRAAABTmbqpjU335.png*/ no-repeat; 
+    background-size: .8rem .8rem;
+}
+
+/*动画*/
+@keyframes downsup
+{
+0% {opacity:0;transform: translate(0,20px);}
+100% {opacity:1;transform: translate(0,0px);}
+}
+
+@-moz-keyframes downsup  
+{
+0% {opacity:0;transform: translate(0,20px);}
+100% {opacity:1;transform: translate(0,0px);}
+}
+
+@-webkit-keyframes downsup  
+{
+0% {opacity:0;transform: translate(0,20px);}
+100% {opacity:1;transform: translate(0,0px);}
+}
+
+@-o-keyframes downsup  
+{
+0% {opacity:0;transform: translate(0,20px);}
+100% {opacity:1;transform: translate(0,0px);}
+}
+
+.next-pagebg {
+    animation: downsup 1s infinite; 
+    -moz-animation: downsup 1s infinite;
+    -webkit-animation: downsup 1s infinite;
+    -o-animation: downsup 1s infinite;
+}
+.iphon-img01 {
+    width: 94%;
+}
+@media screen and (device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2){
+    .h5-bgs {
+        height: 70vh !important;  
+    }
+    .section-title-one {
+        padding-top: 1rem;
+    }
+}
+@media screen and (device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2){
+    .h5-bgs {
+        height: 70vh !important;  
+    }
+}
+.h5-bgs {
+    height:70vh; 
+    position: relative;
+    bottom: -1rem; 
+}
+.footer-con {
+    position: relative;
+    bottom: 1rem;
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    width: 100%;
+    color: #999;
+    font-size: .24rem;
+    background:#fff;
+}
+.logo-h5 {
+    width: 1.46rem;
+    height: 1.46rem;
+}
+.top-logos {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.top-logos-img {
+    width: .62rem;
+    height: .62rem;
+    background: url("../../40/E6/Cgp0RVoFZruALorXAAAE8D2V9DI556.png")/*tpa=https://static.wkanx.com/w001/M00/40/E6/Cgp0RVoFZruALorXAAAE8D2V9DI556.png*/ no-repeat;
+    background-size: .62rem .62rem;
+    margin: .18rem .24rem;
+}
+/*.top-logos-img::after {
+    position: absolute;
+    left: .9rem;
+    content: '逐浪小说';
+    color: #333;
+    font-size: .24rem;
+    top: .3rem;
+}*/
+.top-logos-txt {
+    position: absolute;
+    left: .9rem; 
+    color: #333;
+    font-size: .24rem;
+    top: .3rem;
+}
+.top-down-and {
+    position: absolute;
+    width: 1.68rem;
+    height: .48rem;
+    border: solid 1px #508cee;
+    top: .2rem;
+    right: .2rem;
+    border-radius: 50px;
+    display: none;
+}
+.top-down-and::before {
+    position: absolute;
+    content: '';
+    width: .28rem;
+    height: .28rem;
+    background: url("../../40/EB/CgqN3FoFZtSAVaPWAAABrymMQOU915.png")/*tpa=https://static.wkanx.com/w001/M00/40/EB/CgqN3FoFZtSAVaPWAAABrymMQOU915.png*/ no-repeat;
+    background-size: .28rem .28rem;
+    top: .1rem;
+    left: .2rem;
+}
+.top-down-and::after {
+    position: absolute;
+    content: 'Android';
+    font-size: .24rem;
+    color: #508cee;
+    top: .1rem;
+    left: .6rem;
+} 
+.top-down-ios {
+    position: absolute;
+    width: 1.68rem;
+    height: .48rem;
+    border: solid 1px #508cee;
+    top: .2rem;
+    right: .2rem;
+    border-radius: 50px;
+    display: none;
+}
+.top-down-ios::before {
+    position: absolute;
+    content: '';
+    width: .28rem;
+    height: .28rem;
+    background: url("../../40/E6/Cgp0RVoFZqCAHiXgAAABpvj5_SI114.png")/*tpa=https://static.wkanx.com/w001/M00/40/E6/Cgp0RVoFZqCAHiXgAAABpvj5_SI114.png*/ no-repeat;
+    background-size: .28rem .28rem;
+    top: .1rem;
+    left: .2rem;
+}
+.top-down-ios::after {
+    position: absolute;
+    content: 'iPhone';
+    font-size: .24rem;
+    color: #508cee;
+    top: .1rem;
+    left: .6rem;
+} 

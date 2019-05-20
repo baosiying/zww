@@ -139,7 +139,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="main">
 					<ul class="clearfix">
 												<li>
-							<a href="586262/index.htm" >
+							<a href="bookmain.jsp?bid=1" >
 								<dl>
 									<dt><img src="image/586262.jpg" ></dt>
 									<dd>
@@ -153,7 +153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="382194/index.htm" >
+							<a href="bookmain.jsp?bid=2" >
 								<dl>
 									<dt><img src="image/382194.jpg" ></dt>
 									<dd>
@@ -167,7 +167,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="661593/index.htm" >
+							<a href="bookmain.jsp?bid=3" >
 								<dl>
 									<dt><img src="image/661593.jpg" ></dt>
 									<dd>
@@ -181,7 +181,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="415816/index.htm" >
+							<a href="bookmain.jsp?bid=4" >
 								<dl>
 									<dt><img src="image/415816.jpg" ></dt>
 									<dd>
@@ -195,7 +195,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="473870/index.htm" >
+							<a href="bookmain.jsp?bid=5" >
 								<dl>
 									<dt><img src="image/473870.jpg" ></dt>
 									<dd>
@@ -209,7 +209,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="643960/index.htm" >
+							<a href="bookmain.jsp?bid=6" >
 								<dl>
 									<dt><img src="image/643960.jpg" ></dt>
 									<dd>
@@ -245,7 +245,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</h2>
 				<ul class="bklist clearfix">
 										<li>
-						<a href="635357/index.htm" >
+						<a href="bookmain.jsp?bid=7" >
 							<dl>
 								<dt><img src="image/635357.jpg" ></dt>
 								<dd>
@@ -260,7 +260,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</a>
 					</li>
 										<li>
-						<a href="640747/index.htm" >
+						<a href="bookmain.jsp?bid=8" >
 							<dl>
 								<dt><img src="image/640747.jpg" ></dt>
 								<dd>
@@ -276,7 +276,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</a>
 					</li>
 										<li>
-						<a href="588643/index.htm" >
+						<a href="bookmain.jsp?bid=9" >
 							<dl>
 								<dt><img src="image/588643.jpg" ></dt>
 								<dd>
@@ -292,7 +292,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</a>
 					</li>
 										<li>
-						<a href="417818/index.htm" >
+						<a href="bookmain.jsp?bid=10" >
 							<dl>
 								<dt><img src="image/417818.jpg" ></dt>
 								<dd>
@@ -307,7 +307,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</a>
 					</li>
 										<li>
-						<a href="645180/index.htm" >
+						<a href="bookmain.jsp?bid=11" >
 							<dl>
 								<dt><img src="image/645180.jpg" ></dt>
 								<dd>
@@ -322,7 +322,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</a>
 					</li>
 										<li>
-						<a href="633946/index.htm" >
+						<a href="bookmain.jsp?bid=12" >
 							<dl>
 								<dt><img src="image/633946.jpg" ></dt>
 								<dd>
@@ -345,7 +345,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<h3>男频榜单</h3>
 						<ol>
 																					<li>
-								<a href="640793/index.htm" >
+								<a href="bookmain.jsp?bid=13" >
 								<em class="num">1.</em>
 								<dl>
 									<dt><img src="image/640793.jpg" ></dt>
@@ -357,7 +357,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</a>
 							</li>
 																					<li>
-								<a href="602365/index.htm" >
+								<a href="bookmain.jsp?bid=14" >
 								<em class="num">2.</em>
 								<dl>
 									<dt><img src="image/602365.jpg" ></dt>
@@ -369,7 +369,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</a>
 							</li>
 																					<li>
-								<a href="634314/index.htm" >
+								<a href="bookmain.jsp?bid=15" >
 								<em class="num">3.</em>
 								<dl>
 									<dt><img src="image/634314.jpg" ></dt>
@@ -381,7 +381,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</a>
 							</li>
 																					<li>
-								<a href="643960/index.htm" >
+								<a href="bookmain.jsp?bid=16" >
 								<em class="num">4.</em>
 								<dl>
 									<dt><img src="image/643960.jpg" ></dt>
@@ -393,7 +393,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</a>
 							</li>
 																					<li>
-								<a href="619264/index.htm" >
+								<a href="bookmain.jsp?bid=17" >
 								<em class="num">5.</em>
 								<dl>
 									<dt><img src="image/619264.jpg" ></dt>
@@ -410,7 +410,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<h3>女频榜单</h3>
 						<ol>
 																					<li>
-								<a href="javascript:if(confirm('http://www.xxs8.com/647997/'))window.location='http://www.xxs8.com/647997/'" >
+								<a href="bookmain.jsp?bid=18" >
 								<em class="num">1.</em>
 								<dl>
 									<dt><img src="image/647997.jpg" ></dt>
@@ -422,7 +422,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</a>
 							</li>
 																					<li>
-								<a href="javascript:if(confirm('http://www.xxs8.com/662555/'))window.location='http://www.xxs8.com/662555/'" >
+								<a href="bookmain.jsp?bid=19" >
 								<em class="num">2.</em>
 								<dl>
 									<dt><img src="image/662555.jpg" ></dt>
@@ -434,7 +434,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</a>
 							</li>
 																					<li>
-								<a href="javascript:if(confirm('http://www.xxs8.com/620164/'))window.location='http://www.xxs8.com/620164/'" >
+								<a href="bookmain.jsp?bid=20" >
 								<em class="num">3.</em>
 								<dl>
 									<dt><img src="image/620164.jpg" ></dt>
@@ -446,7 +446,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</a>
 							</li>
 																					<li>
-								<a href="javascript:if(confirm('http://www.xxs8.com/659105/'))window.location='http://www.xxs8.com/659105/'" >
+								<a href="bookmain.jsp?bid=21" >
 								<em class="num">4.</em>
 								<dl>
 									<dt><img src="image/659105.jpg" ></dt>
@@ -458,7 +458,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</a>
 							</li>
 																					<li>
-								<a href="javascript:if(confirm('http://www.xxs8.com/647730/'))window.location='http://www.xxs8.com/647730/'" >
+								<a href="bookmain.jsp?bid=22" >
 								<em class="num">5.</em>
 								<dl>
 									<dt><img src="image/647730.jpg" ></dt>
@@ -475,7 +475,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<h3>热销榜</h3>
 						<ol>
 																					<li>
-								<a href="393057/index.htm" >
+								<a href="bookmain.jsp?bid=23" >
 								<em class="num">1.</em>
 								<dl>
 									<dt><img src="image/393057.jpg" ></dt>
@@ -487,7 +487,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</a>
 							</li>
 																					<li>
-								<a href="434683/index.htm" >
+								<a href="bookmain.jsp?bid=24" >
 								<em class="num">2.</em>
 								<dl>
 									<dt><img src="image/434683.jpg" ></dt>
@@ -499,7 +499,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</a>
 							</li>
 																					<li>
-								<a href="437074/index.htm" >
+								<a href="bookmain.jsp?bid=25" >
 								<em class="num">3.</em>
 								<dl>
 									<dt><img src="image/437074.jpg" ></dt>
@@ -511,7 +511,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</a>
 							</li>
 																					<li>
-								<a href="525900/index.htm" >
+								<a href="bookmain.jsp?bid=26" >
 								<em class="num">4.</em>
 								<dl>
 									<dt><img src="image/525900.jpg" ></dt>
@@ -523,7 +523,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								</a>
 							</li>
 																					<li>
-								<a href="393633/index.htm" >
+								<a href="bookmain.jsp?bid=27" >
 								<em class="num">5.</em>
 								<dl>
 									<dt><img src="image/393633.jpg" ></dt>
@@ -772,7 +772,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<h2 class="ch2">男频精选</h2>
 					<ul class="bklist clearfix">
 												<li>
-							<a href="653674/index.htm" >
+							<a href="bookmain.jsp?bid=28" >
 								<dl>
 									<dt><img src="image/653674.jpg" ></dt>
 									<dd>
@@ -783,7 +783,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="665440/index.htm" >
+							<a href="bookmain.jsp?bid=29" >
 								<dl>
 									<dt><img src="image/665440.jpg" ></dt>
 									<dd>
@@ -794,7 +794,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="666729/index.htm" >
+							<a href="bookmain.jsp?bid=30" >
 								<dl>
 									<dt><img src="image/666729.jpg" ></dt>
 									<dd>
@@ -805,7 +805,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="665600/index.htm" >
+							<a href="bookmain.jsp?bid=31" >
 								<dl>
 									<dt><img src="image/665600.jpg" ></dt>
 									<dd>
@@ -816,7 +816,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="662232/index.htm" >
+							<a href="bookmain.jsp?bid=32" >
 								<dl>
 									<dt><img src="image/662232.jpg" ></dt>
 									<dd>
@@ -827,7 +827,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="669383/index.htm" >
+							<a href="bookmain.jsp?bid=33" >
 								<dl>
 									<dt><img src="image/669383.jpg" ></dt>
 									<dd>
@@ -951,7 +951,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<h2 class="ch2">女频精选</h2>
 					<ul class="bklist clearfix">
 												<li>
-							<a href="javascript:if(confirm('http://www.xxs8.com/672376/'))window.location='http://www.xxs8.com/672376/'" >
+							<a href="bookmain.jsp?bid=34" >
 								<dl>
 									<dt><img src="image/672376.jpg" ></dt>
 									<dd>
@@ -962,7 +962,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="javascript:if(confirm('http://www.xxs8.com/628149/'))window.location='http://www.xxs8.com/628149/'" >
+							<a href="bookmain.jsp?bid=35" >
 								<dl>
 									<dt><img src="image/628149.jpg" ></dt>
 									<dd>
@@ -973,7 +973,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="javascript:if(confirm('http://www.xxs8.com/577019/'))window.location='http://www.xxs8.com/577019/'" >
+							<a href="bookmain.jsp?bid=36" >
 								<dl>
 									<dt><img src="image/577019.jpg" ></dt>
 									<dd>
@@ -984,7 +984,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="javascript:if(confirm('http://www.xxs8.com/655062/'))window.location='http://www.xxs8.com/655062/'" >
+							<a href="bookmain.jsp?bid=37" >
 								<dl>
 									<dt><img src="image/655062.jpg" ></dt>
 									<dd>
@@ -995,7 +995,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="javascript:if(confirm('http://www.xxs8.com/647194/'))window.location='http://www.xxs8.com/647194/'" >
+							<a href="bookmain.jsp?bid=38" >
 								<dl>
 									<dt><img src="image/647194.jpg" ></dt>
 									<dd>
@@ -1006,7 +1006,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="javascript:if(confirm('http://www.xxs8.com/647369/'))window.location='http://www.xxs8.com/647369/'" >
+							<a href="bookmain.jsp?bid=39" >
 								<dl>
 									<dt><img src="image/647369.jpg" ></dt>
 									<dd>
@@ -1128,10 +1128,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 			<div class="sec sec6" id="sec6">
 				<div class="main">
-					<h2 class="ch2">优秀获奖作品</h2>
+					<h2 class="ch2">会员作品</h2>
 					<ul class="bklist clearfix">
 												<li>
-							<a href="653788/index.htm" >
+							<a href="bookmain.jsp?bid=40" >
 								<dl>
 									<dt><img src="image/653788.jpg" ></dt>
 									<dd>
@@ -1142,7 +1142,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="591207/index.htm" >
+							<a href="bookmain.jsp?bid=41" >
 								<dl>
 									<dt><img src="image/591207.jpg" ></dt>
 									<dd>
@@ -1153,7 +1153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="607056/index.htm" >
+							<a href="bookmain.jsp?bid=42" >
 								<dl>
 									<dt><img src="image/607056.jpg" ></dt>
 									<dd>
@@ -1164,7 +1164,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="557329/index.htm" >
+							<a href="bookmain.jsp?bid=43" >
 								<dl>
 									<dt><img src="image/557329.jpg" ></dt>
 									<dd>
@@ -1175,7 +1175,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="595891/index.htm" >
+							<a href="bookmain.jsp?bid=44" >
 								<dl>
 									<dt><img src="image/595891.jpg" ></dt>
 									<dd>
@@ -1186,7 +1186,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</a>
 						</li>
 												<li>
-							<a href="557329/index.htm" >
+							<a href="bookmain.jsp?bid=45" >
 								<dl>
 									<dt><img src="image/557329.jpg" ></dt>
 									<dd>

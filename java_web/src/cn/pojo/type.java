@@ -1,7 +1,9 @@
 package cn.pojo;
 
 public class type {
+	//小说类型
 	private int tid;
+	//类名
 	private String tname;
 	public int getTid() {
 		return tid;

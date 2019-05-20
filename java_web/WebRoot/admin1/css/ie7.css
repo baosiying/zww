@@ -1,0 +1,102 @@
+.nav{
+    border-bottom: 2px solid #ddd;
+}
+.menu>li{
+    float: left;
+}
+.menu>li:first-child{
+    margin-left: 75px;
+}
+
+.slideBox .hd{
+    bottom: 45px;
+}
+.slideBox .hd ul{
+    margin-left: -85px;
+}
+.slideBox .hd ul li{
+    float: left;
+}
+
+
+.albumBox .hd ul{
+    float: right;
+    width: auto;
+    padding-right: 10px;
+}
+.albumBox .hd ul li{
+    float: left;
+}
+.albumBox .bd img{
+    position: absolute;
+}
+.news-img>a{
+    text-decoration: none;
+}
+.news-img h3{
+    cursor: pointer;
+}
+
+.notice{
+    height: 375px;
+}
+
+.special li a{
+    text-decoration: none;
+}
+.special li a img{
+    position: absolute;
+}
+.special li h2{
+    font-weight: normal;
+    cursor: pointer;
+}
+.special li a:hover h2{
+    letter-spacing: 0px;
+}
+
+.channel ul li {
+    width: 123px;
+}
+
+.detail{
+    width: 836px;
+}
+.detail.wd{
+    width: 830px;
+}
+
+
+.banner{
+    height: 286px;
+}
+body{
+    overflow: hidden;
+}
+.banner img{
+    height: 286px;
+    position: absolute;
+}
+.banner .parent{
+    top: 120px;
+}
+.banner .parent li{
+    display: inline;
+}
+
+
+.department,
+.hr,
+.leader,
+.leader-old,
+.scenery,
+.teacher{
+    overflow: hidden;
+}
+
+.hr{
+    height: 640px;
+}
+.hr-info{
+    padding: 0 30px;
+}

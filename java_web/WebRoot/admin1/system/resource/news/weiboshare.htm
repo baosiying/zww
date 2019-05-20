@@ -1,0 +1,78 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>文章分享</title>
+</head>
+<script type="text/javascript">
+function getParameter(paras)
+{
+	var url=location.href;	
+	var paraString=url.substring(url.indexOf("?")+1,url.length).split("&");	
+	var paraObj={}
+	for(i=0;j=paraString[i];i++)
+	{
+		paraObj[j.substring(0,j.indexOf("=")).toLowerCase()]=j.substring(j.indexOf("=")+1,j.length);
+	}
+	var returnValue=paraObj[paras.toLowerCase()];	
+	if(typeof(returnValue)=="undefined")
+	{
+		return "";
+	}
+	else
+	{
+		return returnValue;
+	}
+}
+switch(getParameter('type'))
+{
+    case 'tsina': //新浪微博
+        window.location.href = 'http://service.weibo.com/share/share.php?act=getShareBtn' + getParameter('type') + '&title=' + getParameter('title') + '&url=' + getParameter('url') + '&uid=' + getParameter('uid') + '&jtss=1&summary=' + getParameter('summary');
+        break;
+    case 'qzone': //QQ空间 
+        window.location.href = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + getParameter('url') + '&title=' + getParameter('title') + '&pics=&summary=';
+        break;
+    case 'tqq': //腾讯微博 
+        window.location.href = 'http://v.t.qq.com/share/share.php?act=getShareBtn' + getParameter('type') + '&title=' + getParameter('title') + '&url=' + getParameter('url') + '&uid=' + getParameter('uid') + '&jtss=1&summary=' + getParameter('summary')
+        break;
+    case 'renren': //人人网 
+        window.location.href = 'http://share.renren.com/share/buttonshare.do?link=' + getParameter('url');
+        break;
+    case 'kaixin001': //开心网 
+        window.location.href = 'http://www.kaixin001.com/repaste/share.php?rtitle=' + getParameter('title') + '&rurl=' + getParameter('url') + '&rcontent=' + getParameter('title') + '+' + getParameter('url');
+        break;
+    case 'tsohu': //搜狐微博
+        window.location.href = 'http://t.sohu.com/third/post.jsp?act=getShareBtn' + getParameter('type') + '&title=' + encodeURIComponent(getParameter('title')) + '&url=' + getParameter('url') + '&uid=' + getParameter('uid') + '&jtss=1&summary=' + getParameter('summary');
+        break;
+    case 't163': //网易微博
+        window.location.href = 'http://t.163.com/article/user/checkLogin.do?act=getShareBtn' + getParameter('type') + '&info=' + getParameter('title') + '+' + getParameter('url') + '&uid=' + getParameter('uid') + '&jtss=1&summary=' + getParameter('summary');
+        break;
+    case 'thexun': //和讯微博 
+        window.location.href = 'http://t.hexun.com/channel/shareweb.aspx?title=' + getParameter('title') + '&url=' + getParameter('url');
+        break;
+    case 'xinm': //新民微博 
+        window.location.href = 'http://t.xinmin.cn/api/share.php?act=getShareBtn' + getParameter('type') + '&title=' + getParameter('title') + '&url=' + getParameter('url') + '&uid=' + getParameter('uid') + '&jtss=1&summary=' + getParameter('summary');
+        break;
+    case 'eastday': //东方网微博 
+        var str = getParameter('url') + "|||" + getParameter('title');
+        window.location.href = 'http://tframe.eastday.com/index.php?m=blog&a=showsend&con=' + escape(str);
+        break;
+    case 'tifeng': //凤凰网微博 
+        window.location.href = 'http://t.ifeng.com/interface.php?_c=share&_a=share&sourceUrl='+getParameter('url')+'&title='+getParameter('title')+'&pic=&source=1';
+        break;
+    case 'tpeople': //人民网微博 
+        window.location.href ='http://t.people.com.cn/bbsShare.action?url='+getParameter('url')+'&appkey=&title='+getParameter('title')+'&pic=&site=';
+        break;        
+    case 'msn'://msn
+        window.location.href ='http://profile.live.com/badge?url='+getParameter('url')+'&screenshot=';
+        break;
+    case 'feixin'://msn
+        window.location.href ='http://space.fetion.com.cn/api/share?source=&title='+getParameter('title')+'&url='+getParameter('url');
+        break;         
+    default: //新华微博
+        window.location.href = 'http://t.home.news.cn/share.jsp?url='+getParameter('url')+'&title='+getParameter('title')+'&pic=';
+        break;
+}
+</script>
+<body>
+</body>
+</html>

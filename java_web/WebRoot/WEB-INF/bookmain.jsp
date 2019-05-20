@@ -53,6 +53,7 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=https://s.zhulan
 </head>
 
 <body>
+<%=request.getParameter("bid") %>
 
 <link rel="stylesheet" href="css/ba4a1388.css" >
   <div class="topbar minitype" id="topbar"> 
@@ -434,7 +435,7 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=https://s.zhulan
 <!--end of .main-->
 <div class="footer"><div class="main">
 	<div  class="inner-link"> <a href="../help/about.html" >联系我们</a> </div>
-	<div class="copyrights">Copyright &copy; <script>document.write((new Date).getFullYear())</script> zhulang.com, All Rights Reserved. <a target="_blank" href="../index.htm" >苏网文[2016]5224-123号</a> 新出网证（苏）字0027号　</div>
+	<div class="copyrights">Copyright &copy; <script>document.write((new Date).getFullYear())</script> zhulang.com, All Rights Reserved. <a target="_blank" href="../index.htm" >卓京网文[2016]5224-123号</a> 新出网证（湘）字0027号　</div>
 </div>
 <script>
 var _hmt = _hmt || [];

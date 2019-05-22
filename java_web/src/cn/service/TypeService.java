@@ -1,5 +1,5 @@
 package cn.service;
 
-public class TypeService {
+public interface TypeService {
 
 }

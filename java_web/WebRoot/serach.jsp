@@ -73,11 +73,11 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
           <li ><a href="http://pay.zhulang.com/pay/index.html">充值</a></li>
         </ul>
 
-        <div class="topsch" id="topsch">
-          <form action="serach" method="post">
-            <input type="text" name="k" value="万古狂尊" maxlength="50" placeholder="书名或作者">
-            <button class="sch" type="submit"><i class="ticon ticon-search"></i></button>
-            <button class="cls" type="reset"><i class="ticon ticon-delete"></i></button>
+        <div  class="topsch" id="topsch">
+          <form action="topsch"   method="post">
+            <input type="text" name="bname" value="" maxlength="50" placeholder="书名或作者">
+            <button class="sch" type="submit"  ><i class="ticon ticon-search"></i></button>
+            <button class="cls"   type="reset"><i class="ticon ticon-delete"></i></button>
           </form>
         </div>
                   <script>
@@ -132,6 +132,7 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
       
         <script>
           $(function(){function e(){window.zluser&&zluser.uid&&($.ajax({type:"get",url:"//www.zhulang.com/ajax/Msg/getUnreadNum.html",dataType:"jsonp",success:function(e){if(e){var s=1*e.total,o=$("#topbar .user .msgnum");s?(s=s>99?"99+":s,o.text(s).show()):o.text("").hide()}}}),setTimeout(function(){e()},18e4))}var s=(document,$("body"),$("#topsch")),o=0;s.find("input").on("focus",function(){s.addClass("focused"),$("#topbar").find("menu-on").removeClass("menu-on")}).on("blur",function(){clearTimeout(o),o=setTimeout(function(){s.removeClass("focused")},100)});var t=$("#topbar"),n=0,u="menu-on";t.find(".app,.user").on("mouseenter",function(e){var s=$(this),o=s.attr("class");clearTimeout(n),/app/.test(o)&&t.find(".user").removeClass(u),/user/.test(o)&&t.find(".app").removeClass(u),t.addClass("overvis"),$(this).addClass(u)}).on("mouseleave",function(){var e=$(this);clearTimeout(n),n=setTimeout(function(){e.removeClass(u),t.removeClass("overvis")},500)}),e()});
+
         </script>
       
 

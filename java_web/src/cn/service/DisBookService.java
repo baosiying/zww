@@ -1,5 +1,5 @@
 package cn.service;
 
-public class DisBookService {
+public interface DisBookService {
 
 }

@@ -1,5 +1,5 @@
 package cn.dao;
 
-public class AdminDao {
+public interface AdminDao {
 
 }

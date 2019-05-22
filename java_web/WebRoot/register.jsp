@@ -55,7 +55,7 @@ body{
   #child{
           width:500px;
           height:500px;
-         background-color:#e8ecef;
+         background-color:#eaf4fc;
   }
     
     
@@ -87,9 +87,11 @@ body{
     text-decoration: none;
 }
     
-    
-    
-    
+ .button1:hover {
+    background-color: #008CBA;
+    color: white;
+     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
     
     
 </style>
@@ -197,14 +199,15 @@ body{
          <form action="register" method="post"  enctype="multipart/form-data">
            
               <div><img id="myimg"  width="80px" height="80px"/ ></div>
+              </br>
         <div id="nam">
-        用户名：<input type="text" name="uname" id="uname" onblur="registerByPost()"/>
+        用户名：<input type="text" name="uname"  id="uname" onblur="registerByPost()" placeholder="请输入用户名"/>
         <div id="dname" style="display:inline" width="50px" height="50px"/></div></br>
         </div>
         </br>
         
       <div id="pas" >
-    密&nbsp;&nbsp;&nbsp;&nbsp;码:<input type="password" name="upass" id="upass"/>
+    密&nbsp;&nbsp;&nbsp;&nbsp;码:<input type="password" name="upassword" id="upasseord" placeholder="请输入密码"/>
        </div>
          </br>
          
@@ -215,7 +218,7 @@ body{
       </br>
        <div id="file" >
              <a href="javascript:;" class="a-upload">
-                      <input type="file" name="photo" onchange="upload(this)" value="选择图像"/>
+                      <input type="file" name="photo" onchange="upload(this)"/>
               </a>
        </div>
        
@@ -223,12 +226,12 @@ body{
          </br>
          
          <div id="code">
-           验证码:<input type="text" name="clientCode">&nbsp;&nbsp;<!--验证码图片--><!--  <img src="img" onclick="changeImg(this)"/>-->
+           验证码:<input type="text" name="clientCode" placeholder="请输入验证码">&nbsp;&nbsp;<!--验证码图片--><img src="img" onclick="changeImg(this)"/>
          </div>
          </br>  
          
          <div id="rigs" >
-             <input type="submit" value="注册"/> 
+             <input type="submit" value="注册" class="button1"/> 
          </div>
          </form> 
       </div>

@@ -63,7 +63,7 @@ public class TopschServlet extends HttpServlet {
 		BookService b=new BookServiceImpl();
 		System.out.println(bname);
 		List<Book> list=b.selectStudentByName(bname);
-		System.out.println(list.size());
+		request.setAttribute("bname", bname);
 		request.setAttribute("list",list);
 		request.getRequestDispatcher("serach.jsp").forward(request, response);
 	}

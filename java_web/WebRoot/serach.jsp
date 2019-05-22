@@ -1,5 +1,7 @@
 <%@page import="cn.pojo.Book"%>
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -145,7 +147,9 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
 </div>
 <!--end of nav group -->
 
-<%   List<Book> list=(List) request.getAttribute("list"); %>
+<%   List<Book> list=(List) request.getAttribute("list");
+        String bname=(String)request.getAttribute("bname");
+ %>
 
 <div class="main">
     <div class="mian-row clearfix">
@@ -153,7 +157,7 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
             <div class="sch-result st-list" id="sch-result">
             	<div class="bdrbox sch-res-top">
                 	<p class="fl">
-                    	共查询<%=list.size() %>本与<strong>“万古狂尊”</strong>相关的小说
+                    	共查询<%=list.size() %>本与<strong><%=bname%></strong>相关的小说
                     </p>
                     <div class="fr list-style">
                     	<label>显示方式</label>
@@ -163,20 +167,20 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
                         </span>
                     </div>
                 </div>
+                <c:forEach items="${list}" var="book" varStatus="i">
+                <tr >
                 <div class="sch-res-list">
-                                        <ul class="clearfix">
-                                                                        <li>
+                                       <ul class="clearfix">
+                                                                    <li>
                             <dl>
                                 <dt>
-                                    <a href="http://www.zhulang.com/415816/" target="_blank"><img class="f-img" src="http://stc.zhulang.com/images/s.gif" data-src="image/415816_x160.jpg" alt="万古狂尊"><span>万古狂尊</span></a>
-                                    <a href="http://www.zhulang.com/author/index/aid/7726350.html" class="book-author" target="_blank">一壶酒</a>
+                                    <a href="http://www.zhulang.com/415816/" target="_blank"><img class="f-img" src="${book.picture} " data-src="image/415816_x160.jpg" alt="${book.bname}"><span>${book.bname}</span></a>
+                                    <a href="http://www.zhulang.com/author/index/aid/7726350.html" class="book-author" target="_blank">${book.writer}</a>
                                 </dt>
                                 <dd>
-                                    <h3><a href="http://www.zhulang.com/415816/" target="_blank">万古狂尊</a> （<a href="http://www.zhulang.com/author/index/aid/7726350.html" target="_blank">一壶酒</a> 著）  <span class="zlblue">连载</span></h3>
+                                    <h3><a href="http://www.zhulang.com/415816/" target="_blank">${book.bname}</a> （<a href="http://www.zhulang.com/author/index/aid/7726350.html" target="_blank">${book.writer}</a> 著）  <span class="zlblue">连载</span></h3>
                                     <p class="book-info">转世重生 | 第一千二百零五章 成了！ | 更新：2019-05-20 21:22:35</p>
-                                    <p class="book-summ">一代杀神江枫，叱咤十方风云，却在探索仙古遗迹之时，被红颜知己暗算，携旷世古经，重生八千年后！
-一世情断，三生缘尽，心怀无上杀意，江枫强势崛起，凝聚九龙星象，淬炼不灭之躯，以无敌身姿，暴揍各路天骄！
-我意，神不可挡，我念，天不可灭，这一世，吾必杀他个血染青霄，不上九天终不还！！</p>
+                                    <p class="book-summ">${book.breif}</p>
                                     <div class="btn-grp">
                                         <a class="btn btn-primary addto-shelf-btn" href="javascript:;" data-post="book_id=415816" data-api="http://www.zhulang.com/app/shelf/add.html" data-bid="415816">加入书架</a>
                                         <a class="btn btn-primary read-now-btn" href="http://book.zhulang.com/415816/" target="_blank">开始阅读</a>
@@ -186,6 +190,9 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
                         </li>
                                             </ul>
                                     </div>
+                               </tr>
+                         </c:forEach>
+                                    
                                 <div class="page">
                     <div>    </div>    
                 </div>

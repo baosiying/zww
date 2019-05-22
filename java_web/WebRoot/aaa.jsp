@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -23,6 +23,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
+<<<<<<< HEAD
     哈哈haahaha<br>
+=======
+
+    欢迎来到界面haaaa<br>
+
+ My name is zhaoguo.
+
+>>>>>>> branch 'master' of https://github.com/baosiying/zww.git
   </body>
 </html>

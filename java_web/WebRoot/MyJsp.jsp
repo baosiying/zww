@@ -71,11 +71,11 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
           <li ><a href="javascript:if(confirm('http://pay.zhulang.com/pay/index.html'))window.location='http://pay.zhulang.com/pay/index.html'" >充值</a></li>
         </ul>
 
-        <div class="topsch" id="topsch">
-          <form action="http://www.zhulang.com/search/index.html" method="post">
-            <input type="text" name="k" value="" maxlength="50" placeholder="书名或作者">
-            <button class="sch" type="submit"><i class="ticon ticon-search"></i></button>
-            <button class="cls" type="reset"><i class="ticon ticon-delete"></i></button>
+        <div  class="topsch" id="topsch">
+          <form action="topsch"   method="post">
+            <input type="text" name="bname" value="" maxlength="50" placeholder="书名或作者">
+            <button class="sch" type="submit"  ><i class="ticon ticon-search"></i></button>
+            <button class="cls"   type="reset"><i class="ticon ticon-delete"></i></button>
           </form>
         </div>
                   <!-- 未登录状态 -->

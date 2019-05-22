@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title>万古狂尊小说在线下载阅读_逐浪小说</title>
+    <title>逐浪小说_搜索结果</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="renderer" content="webkit" />
     <meta name="keywords" content="万古狂尊,小说">
@@ -157,7 +157,7 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
             <div class="sch-result st-list" id="sch-result">
             	<div class="bdrbox sch-res-top">
                 	<p class="fl">
-                    	共查询<%=list.size() %>本与<strong><%=bname%></strong>相关的小说
+                    	共查询<c:if test="${list}!=null }"> ${list.size}</c:if>本与<strong><c:if test="${bname}!=null }"> ${bname}</c:if>相关的小说
                     </p>
                     <div class="fr list-style">
                     	<label>显示方式</label>
@@ -168,6 +168,7 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
                     </div>
                 </div>
                 <c:forEach items="${list}" var="book" varStatus="i">
+             
                 <tr >
                 <div class="sch-res-list">
                                        <ul class="clearfix">
@@ -179,7 +180,7 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
                                 </dt>
                                 <dd>
                                     <h3><a href="http://www.zhulang.com/415816/" target="_blank">${book.bname}</a> （<a href="http://www.zhulang.com/author/index/aid/7726350.html" target="_blank">${book.writer}</a> 著）  <span class="zlblue">连载</span></h3>
-                                    <p class="book-info">转世重生 | 第一千二百零五章 成了！ | 更新：2019-05-20 21:22:35</p>
+                                    <p class="book-info">权限| <c:if test="${book.endtime}==1"> 普通用户</c:if> <c:if test="${book.endtime}==2"> 会员</c:if>| 更新：2019-05-20 21:22:35</p>
                                     <p class="book-summ">${book.breif}</p>
                                     <div class="btn-grp">
                                         <a class="btn btn-primary addto-shelf-btn" href="javascript:;" data-post="book_id=415816" data-api="http://www.zhulang.com/app/shelf/add.html" data-bid="415816">加入书架</a>
@@ -191,6 +192,7 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
                                             </ul>
                                     </div>
                                </tr>
+                             
                          </c:forEach>
                                     
                                 <div class="page">

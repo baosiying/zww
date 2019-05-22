@@ -64,7 +64,7 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=https://s.zhulan
                  			   BookService service=new BookServiceImpl();
                  			   //查询出书籍的全部信息
                  			    java.util.List<Book> list =service.selectBookById(bid);
-                 			    //查询出书籍的类型
+                 			    //查询出书籍的类型名字
                  			    String type=service.selectBookTypeById(bid);
                  			    request.setAttribute("list", list);
                  			    request.setAttribute("type", type);

@@ -57,7 +57,7 @@ public class BookServiceImpl implements BookService{
 			return list;
 		}
 
-		//根据bid通过联表查询出书籍的类型
+		//根据bid查询出书籍的类型
 		public String selectBookTypeById(int bid) throws Exception {
 			Connection conn = DBhelper.getConnection();
 			boolean flag = false;

@@ -13,7 +13,7 @@ import cn.pojo.Book;
 import cn.service.BookService;
 import cn.service.impl.BookServiceImpl;
 
-//²éÑ¯ÓÃµÄservlet
+//ï¿½ï¿½Ñ¯ï¿½Ãµï¿½servlet
 public class TopschServlet extends HttpServlet {
 
 	/**
@@ -63,7 +63,7 @@ public class TopschServlet extends HttpServlet {
 		BookService b=new BookServiceImpl();
 		System.out.println(bname);
 		List<Book> list=b.selectStudentByName(bname);
-		System.out.println(list);
+		System.out.println(list.size());
 		request.setAttribute("list",list);
 		request.getRequestDispatcher("serach.jsp").forward(request, response);
 	}

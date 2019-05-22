@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DBhelper {
-	//Ê¹ÓÃ¾²Ì¬¿éÁ¬½Ó
+	//Ê¹ï¿½Ã¾ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	static{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -19,11 +19,11 @@ public class DBhelper {
 		}
 	}
 	
-	//¿ªÆôÊý¾Ý¿â
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½
 	public static Connection getConnection(){
 		Connection conn=null;
 		try {
-			conn=DriverManager.getConnection("jdbc:mysql://localhost/gtzww","root","13577625795");
+			conn=DriverManager.getConnection("jdbc:mysql://localhost/gtzww","root","898989");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -32,7 +32,7 @@ public class DBhelper {
 		
 	}
 	
-	//¹Ø±ÕÊý¾Ý¿â
+	//ï¿½Ø±ï¿½ï¿½ï¿½Ý¿ï¿½
 	public static void closeConnection(Connection con){
 		try {
 			if(con!=null&&!con.isClosed()){

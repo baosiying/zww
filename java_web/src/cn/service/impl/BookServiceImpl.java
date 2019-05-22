@@ -1,6 +1,7 @@
 package cn.service.impl;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 import cn.dao.BookDao;
@@ -34,5 +35,49 @@ public class BookServiceImpl implements BookService{
 			
 			return list;
 		}
+	
+	 //根据bid查询书籍信息
+		public java.util.List<Book> selectBookById(int bid) throws Exception {
+			Connection conn = DBhelper.getConnection();
+			boolean flag = false;
+			java.util.List<Book> list=null;
+			try {
+				conn.setAutoCommit(false);
+				list= dao.selectBookById(bid, conn);
+				conn.commit();
+			} catch (Exception e) {
+				try {
+					conn.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}finally{
+				DBhelper.closeConnection(conn);
+			}
+			return list;
+		}
+
+		//根据bid通过联表查询出书籍的类型
+		public String selectBookTypeById(int bid) throws Exception {
+			Connection conn = DBhelper.getConnection();
+			boolean flag = false;
+			String type=null;
+			try {
+				conn.setAutoCommit(false);
+				type=dao.selectBookTypeById(bid, conn);
+				conn.commit();
+			} catch (Exception e) {
+				try {
+					conn.rollback();
+				} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+			}finally{
+				DBhelper.closeConnection(conn);
+			}
+			return type;
+		}
+	
+	
 	}
 

@@ -5,7 +5,11 @@ import java.util.List;
 import cn.pojo.Book;
 
 public interface BookDao {
-	//根据书名查整所有书
+	//锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷
 	public List<Book> selectStudentByName(String name, Connection con);
+	//鏍规嵁bid鏌ヨ涔︾睄淇℃伅
+	public  java.util.List<Book> selectBookById(int bid,Connection conn) throws Exception;
+	//鏍规嵁bid閫氳繃鑱旇〃鏌ヨ鍑轰功绫嶇殑绫诲瀷
+	public  String selectBookTypeById(int bid,Connection conn) throws Exception;
 	
 }

@@ -17,25 +17,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta name="renderer" content="webkit" />
     <meta name="keywords" content="小海豚_67604708个人中心,逐浪,文学,原创文学,原创文学平台,小说,zhulang">
     <meta name="description" content="小海豚_67604708个人中心 - 逐浪 zhulang.com -">
-    <link rel="stylesheet" href="http://stc.zhulang.com/style/common.css?v=11661" type="text/css">
-    <link rel="stylesheet" href="http://stc.zhulang.com/style/ucenter.css?v=11661" type="text/css">
+    <link rel="stylesheet" href="css/common.css" type="text/css">
+    <link rel="stylesheet" href="css/ucenter.css" type="text/css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://www.zhulang.com/favicon.ico"/>
     
-    <script src="http://stc.zhulang.com/js/lib/jquery-1.11.1.min.js"></script>
-<script src="http://stc.zhulang.com/js/lib/require.js"></script>
-<script src="http://stc.zhulang.com/js/reqcfg.js?v=2995"></script>
+    <script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/require.js"></script>
+<script src="js/reqcfg.js-v=2995"></script>
 <!--c6 headerjs-->
 <!--[if lt IE 9]>
-<link rel="stylesheet" href="http://stc.zhulang.com/lowie/iefix.css" type="text/css">
-<script src="http://stc.zhulang.com/js/lib/html5shiv.min.js" info="html5shiv"></script>
+<link rel="stylesheet" href="css/iefix.css" type="text/css">
+<script src="js/html5shiv.min.js" info="html5shiv"></script>
 <script>
 window.lowie = 1;
 </script>
-<script src="http://stc.zhulang.com/lowie/iefix.js"></script>    
+<script src="js/iefix.js"></script>    
 <![endif]-->
 <style>
-h1.zl-logo {background-image: url(https://s.zhulang.com/images/logo-170728.png)!important;}
-.gray-head h1.zl-logo {background-image: url(https://s.zhulang.com/images/logo-170728.png)!important;}
+h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
+.gray-head h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
 </style>
     <script>
 	(function(){
@@ -55,7 +55,7 @@ h1.zl-logo {background-image: url(https://s.zhulang.com/images/logo-170728.png)!
 </head>
 
 <body>	
-<link rel="stylesheet" href="https://i.zhulang.com/resource/06afe71e/ba4a1388.css">
+<link rel="stylesheet" href="css/ba4a1388.css">
   <div class="topbar minitype" id="topbar"> 
 
   <div class="main">
@@ -65,9 +65,9 @@ h1.zl-logo {background-image: url(https://s.zhulang.com/images/logo-170728.png)!
           
           <li  ><a href="http://www.zhulang.com">首页</a></li>
  
-          <li ><a href="http://www.zhulang.com/shuku/index.html">书库</a></li>
+          <li ><a href="http://www.zhulang.com/shuku/index.html">书库</a><li><a href="http://www.zhulang.com/comic/index.html">动漫</a></li></li>
          
-          <li  ><a href="http://www.zhulang.com/comic/index.html">动漫</a></li>
+          
          
           <li><a href="http://www.xxs8.com" target="_blank">新小说吧</a></li>
           <li><a href="http://www.zhulang.com/fl/fltx.html?v=201903"  target="_blank">作者福利</a></li>
@@ -284,7 +284,7 @@ h1.zl-logo {background-image: url(https://s.zhulang.com/images/logo-170728.png)!
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?c4d45d45e1a473a3e43c8699766169ee";
+  hm.src = "js/hm.js-c4d45d45e1a473a3e43c8699766169ee";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();

@@ -1,6 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-	String path = request.getContextPath();
+String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
@@ -14,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--<![endif]-->
 <head>
     <meta charset=utf-8"utf-8">
-    <title>用户登录_逐浪网</title>
+    <title>用户注册_逐浪网</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="renderer" content="webkit" />
     <meta name="keywords" content="逐浪,文学,原创文学,原创文学平台,小说,zhulang">
@@ -47,19 +47,6 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
     .log-btn .btn-submit{ height: 46px;}
     .gray-head .main h1.zl-logo{ margin: 0 auto; background:url("image/logo-170728.png")/*tpa=image/logo-170728.png*/ center center no-repeat; }
     </style>
-    
-    <script type="text/javascript">
-           //验证码的更新调用函数
-		function changeImg(obj){
-	       //每次传过去的地址不一样，局部刷新验证码，使用感更好，保监会重新加载整个页面
-	       obj.src="img?"+new Date().getTime();
-	}
-	   function actionLogin(){
-	         window.location.href="login";
-	   }
-	   
-	</script>
-    
     </head>
 
 <body >
@@ -72,43 +59,35 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
   
   <div class="reg-main">
   	
-    <form action="login" method="post" id="logForm"  class="valid-form" >
+    <form action="register" method="post" id="logForm"  class="valid-form"   ignoreAutoCheckEvent="true" target="logFormIframe">
 
       <div class="reg-con log-con">
               	
       	<ul>
             <li>
-              <input type="text" class="txt" name="uname" reqmsg="用户名/手机号/信箱" datatype="text" maxlength="30" placeholder="用户名" focusmsg="用户名/手机号/信箱" autocomplete="off">
+              <input type="text" class="txt" name="username" reqmsg="用户名" datatype="text" maxlength="30" placeholder="用户名" focusmsg="用户名/手机号/信箱" autocomplete="off">
             </li>
             
             <li>
-              <input class="txt" type="password" name="upassword"  datatype="text"reqmsg="密码" errmsg="请填写密码" placeholder="密码">
+              <input class="txt" type="password" name="password"  datatype="text"reqmsg="密码" errmsg="请填写密码" placeholder="密码">
             </li>
 
-                        <li>
+             
+
+             <li>
             	<div class="cmn-char-code">
-                	<input type="text" class="txt" name="clientCode" emel="#char-code-err" reqmsg="验证码" errmsg="验证码为5位" datatype="text" maxlength="5" placeholder="验证码" autocomplete="off"><img src="img" onclick="changeImg(this)"/>
+                	<input type="text" class="txt" name="charcode" emel="#char-code-err"   datatype="text" maxlength="5" placeholder="验证码" autocomplete="off"><img src="image/verify.html.png" >
                 </div>
               	<em id="char-code-err"></em>
             </li>
-                         <input type="hidden" value="aaa" name="param" id="destInput">
+                        <input type="hidden" value="aaa" name="param" id="destInput">
           </ul>
       </div>
       
         <div class="log-btn">
-            <input type="submit" class="btn btn-primary btn-block btn-submit">登录</input>
+          <input type="submit" class="btn btn-primary btn-block btn-submit">注册</input>
         </div>
-       
-        <p class="zl-anc">
-        	<input type="hidden" name="domain" value="" />
-          <label class="fl">
-            <input type="checkbox" name="quanxian" value="1">
-            是否是管理员</label>
-            <span class="fr">
-            	<a href="javascript:if(confirm('http://www.zhulang.com/forget/index.html'))window.location='http://www.zhulang.com/forget/index.html'" >注册</a>
-            </span>
-        </p>
-       </form>
+      </form>
       <iframe src="about:blank" name="logFormIframe" id="logFormIframe" class="hidden" style="visibility:hidden; display:none" width="0" height="0" scrolling="no"></iframe>
       <style>
 	  .log-other-way a span{ background-size:42%;}
@@ -149,8 +128,10 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
 <!--end of .main.uc-content-->
 <div class="footer">
   <div class="main">
-	<div  class="inner-link"> <a href="../help/about.html" >联系我们</a> </div>
+	<div  class="inner-link"> <a href="../help/about.html" ></a> </div>
 </div>
-
+</div>
+<script src="js/da7c40d0/06829748.js" ></script>
+<script>
 </body>
 </html>

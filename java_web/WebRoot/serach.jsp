@@ -74,7 +74,7 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
         </ul>
 
         <div class="topsch" id="topsch">
-          <form action="http://www.zhulang.com/search/index.html" method="post">
+          <form action="serach" method="post">
             <input type="text" name="k" value="万古狂尊" maxlength="50" placeholder="书名或作者">
             <button class="sch" type="submit"><i class="ticon ticon-search"></i></button>
             <button class="cls" type="reset"><i class="ticon ticon-delete"></i></button>

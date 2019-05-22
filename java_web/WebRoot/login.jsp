@@ -59,7 +59,7 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
   
   <div class="reg-main">
   	
-    <form action="http://www.zhulang.com/login/doLogin.html" method="post" id="logForm"  class="valid-form"   ignoreAutoCheckEvent="true" target="logFormIframe">
+    <form action="login.do" method="post" id="logForm"  class="valid-form"   ignoreAutoCheckEvent="true" target="logFormIframe">
 
       <div class="reg-con log-con">
               	
@@ -78,12 +78,12 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
                 </div>
               	<em id="char-code-err"></em>
             </li>
-                        <input type="hidden" value="" name="dest" id="destInput">
+                        <input type="hidden" value="aaa" name="param" id="destInput">
           </ul>
       </div>
       
         <div class="log-btn">
-          <button type="submit" class="btn btn-primary btn-block btn-submit">登录</button>
+          <input type="submit" class="btn btn-primary btn-block btn-submit">登录</input>
         </div>
         <p class="zl-anc">
         	<input type="hidden" name="domain" value="" />

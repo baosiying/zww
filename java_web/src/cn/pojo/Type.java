@@ -1,6 +1,6 @@
 package cn.pojo;
 
-public class type {
+public class Type {
 	//小说类型
 	private int tid;
 	//类名

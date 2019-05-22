@@ -2,7 +2,7 @@ package cn.pojo;
 
 
 //π‹¿Ì‘±’À∫≈
-public class admin {
+public class Admin {
 	private int aid;
 	private String account;
 	private String password;

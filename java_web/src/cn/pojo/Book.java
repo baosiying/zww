@@ -1,7 +1,7 @@
 package cn.pojo;
 
 //浏览书籍对象
-public class book {
+public class Book {
 	private int bid;
 	//书籍名
 	private String bname;

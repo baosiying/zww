@@ -1,6 +1,6 @@
 package cn.pojo;
 
-public class writer {
+public class Writer {
 	private int wid;
 	//×÷ÕßÃû
 	private String wname;

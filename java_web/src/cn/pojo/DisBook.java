@@ -1,7 +1,7 @@
 package cn.pojo;
 
 //操作的预处理书籍对象
-public class disbook {
+public class DisBook {
 	private int bid;
 	    //书籍名
 		private String bname;

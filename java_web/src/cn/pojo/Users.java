@@ -1,7 +1,7 @@
 package cn.pojo;
 
 //用户对象
-public class users {
+public class Users {
 	private int uid;
 	private String uaccount;
 	private String upassword;

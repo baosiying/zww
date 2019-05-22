@@ -1,6 +1,10 @@
+<%@page import="cn.pojo.Book"%>
+<%@page import="cn.service.impl.BookServiceImpl"%>
+<%@page import="cn.service.BookService"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-String path = request.getContextPath();
+	String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
@@ -14,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--<![endif]-->
 <head>
     <meta charset=utf-8"utf-8">
-    <title>直播之狂暴升级(看电视吃瓜子)最新章节首发更新_逐浪小说</title>
+    <title>书籍详细信息</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="renderer" content="webkit" />
     <meta name="keywords" content="直播之狂暴升级,看电视吃瓜子,,逐浪小说">
@@ -53,7 +57,18 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=https://s.zhulan
 </head>
 
 <body>
-<%=request.getParameter("bid") %>
+ 
+ 	<!--  拿到首页传过来的bid-->
+                 <%
+                 	int bid=Integer.parseInt(request.getParameter("bid")); 
+                 			   BookService service=new BookServiceImpl();
+                 			   //查询出书籍的全部信息
+                 			    java.util.List<Book> list =service.selectBookById(bid);
+                 			    //查询出书籍的类型
+                 			    String type=service.selectBookTypeById(bid);
+                 			    request.setAttribute("list", list);
+                 			    request.setAttribute("type", type);
+                 %>
 
 <link rel="stylesheet" href="css/ba4a1388.css" >
   <div class="topbar minitype" id="topbar"> 
@@ -63,7 +78,7 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=https://s.zhulan
         
         <ul class="topnav">
           
-          <li  ><a href="../index.htm" >首页</a></li>
+          <li  ><a href="/java_web/index.jsp" >首页</a></li>
  
           <li class="cur"><a href="../shuku/index.html" >书库</a></li>
          
@@ -121,24 +136,28 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=https://s.zhulan
 
 <div class="main cover-content">
 	<div class="crumbs">
+	    <c:forEach var="book"  items="${list}">
+	   
 		当前位置： 
 		 
 							<a href="javascript:if(confirm('http://www.zhulang.com/category/index/class/02.html'))window.location='http://www.zhulang.com/category/index/class/02.html'" >
-					玄幻				</a>  &gt;   
+					${type}				</a>  &gt;   
 					 
-							<a href="javascript:if(confirm('http://www.zhulang.com/shuku/index/sub/0201.html'))window.location='http://www.zhulang.com/shuku/index/sub/0201.html'" >
-					异世大陆				</a>  &gt;   
-							<strong>直播之狂暴升级</strong> (382194)
+							<strong>${book.bname}</strong> 
+	 </c:forEach>
 	</div>
 	<!--end crumbs-->
 	<div class="cover-mian-row">
 		<div class="cover-left">
 			<div class="bdrbox cover-box clearfix">
 				<div class="cover-box-left">
-											<img src="image/382194.jpg" />
-															<p><a href="javascript:;" class="send-flower-btn" data-api="http://www.zhulang.com/App/flower/doAdd/book_id/382194.html"><i class="icon icon-flowers"></i> 送朵鲜花<em class="trans-04s yellow bold" id="flower-num" name="bk_flower_month"></em></a></p> 
+				                        <!-- 小说封面图片 -->
+				                          <c:forEach var="book"  items="${list}">
+											<img src="${book.picture}" />
+				                          </c:forEach>
+															<p><a href="javascript:;" class="send-flower-btn" data-api="http://www.zhulang.com/App/flower/doAdd/book_id/382194.html"><i class="icon icon-flowers"></i> 送月票<c:forEach var="book" items="${list }">${book.monthlynumber}</c:forEach><em class="trans-04s yellow bold" id="flower-num" name="bk_flower_month"></em></a></p> 
 										
-					<p><a href="javascript:;" class="send-reward-btn" data-bkid="382194"  data-api="http://www.zhulang.com/app/reward/index/book_id/382194.html"><i class="icon icon-reward"></i> 打赏作品<em class="trans-04s yellow bold rwd-total-382194" id="reward-num" name="bk_dashang_all"></em></a></p>
+					<p><a href="javascript:;" class="send-reward-btn" data-bkid="382194"  data-api="http://www.zhulang.com/app/reward/index/book_id/382194.html"><i class="icon icon-reward"></i> 推荐月票<c:forEach var="book" items="${list }">${book.recommend}</c:forEach><em class="trans-04s yellow bold rwd-total-382194" id="reward-num" name="bk_dashang_all"></em></a></p>
 					<!-- <style>
 						.anntag a{
 							margin-top: 10px;
@@ -154,27 +173,30 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=https://s.zhulan
 				</div><!--end cover-box-left-->
 								<div class="cover-box-right">
 					<div class="cover-tit">
+				
+                  <c:forEach var="book"  items="${list}">
+                  
 						<h2>
-						直播之狂暴升级													<span>作者：<a href="javascript:if(confirm('http://www.zhulang.com/author/index/aid/22935301.html'))window.location='http://www.zhulang.com/author/index/aid/22935301.html'" >看电视吃瓜子</a></span>
-												<span>责编：书浅 </span>						
+						     ${book.bname}												<span>作者：<a href="javascript:if(confirm('http://www.zhulang.com/author/index/aid/22935301.html'))window.location='http://www.zhulang.com/author/index/aid/22935301.html'" >${book.writer }</a></span>
+												<span>月票数：${book.monthlynumber } </span>						
 						</h2>
 						<p>
-						<span>类别：玄幻</span>
-						
-												<span>字数：3679761</span>
-						
+						<span>推荐票数:${book.recommend }</span>
+						<span>字数：${book.words }</span>
 						<span>授权：签约作品</span>
 						<span id="anntag" class="anntag"></span>
 						
 						
+					
+					</c:forEach>
+					<span>类别：${type }</span>
 					</p>
 					</div><!--end cover-tit-->
 					<div class="cover-txt" id="book-summary">
-						<p class="summ-part">如果穿越不是为了装逼，那将毫无意义……
-<br>如果击败巅峰至尊，绝代天骄是种罪恶，我已经恶贯满盈……
-<br>如果引得冰山女神，呆萌萝莉，性感郡主一见倾心是我的过错，我真是大错特错……
-<br>杀，就杀个满门尽灭，装，就装个天下无敌，惹，...														<a href="javascript:;" class="bluelink sw">[展开]</a>
+					    <c:forEach var="book"  items="${list}">
+						<p class="summ-part">${book.breif}											<a href="javascript:;" class="bluelink sw">[展开]</a>
 													<p>
+					    </c:forEach>
 						<p class="summ-all">如果穿越不是为了装逼，那将毫无意义……
 <br>如果击败巅峰至尊，绝代天骄是种罪恶，我已经恶贯满盈……
 <br>如果引得冰山女神，呆萌萝莉，性感郡主一见倾心是我的过错，我真是大错特错……
@@ -212,7 +234,7 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=https://s.zhulan
 			
 			<div class="bdrbox chapter-box">
 				<div class="box-tit">
-					<h2><a href="javascript:if(confirm('http://book.zhulan�ڷ������ϴ���?'))window.location='http://book.zhulang.com/382194/'" >直播之狂暴升级&nbsp;&nbsp;章节目录</a></h2>
+					<h2><a href="javascript:if(confirm('http://book.zhulan�ڷ������ϴ���?'))window.location='http://book.zhulang.com/382194/'" ><c:forEach var="book" items="${list }">${book.bname}</c:forEach>&nbsp;&nbsp;章节目录</a></h2>
 					<p id="chpt-tit" data-role="tab" data-tag="span" data-con="#chapter-con" data-act="mouseover">
 					<span>
 						<a href="javascript:;"
@@ -257,7 +279,7 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=https://s.zhulan
 			
 			<div class="bdrbox cmt-box">
 				<div class="box-tit">
-					<h2>直播之狂暴升级&nbsp;&nbsp;书评区</h2>
+					<h2><c:forEach var="book" items="${list }">${book.bname}</c:forEach>&nbsp;&nbsp;书评区</h2>
 					<div class="box-tit-cmt">
 						<span class="cur"><a href="javascript:;">最新</a></span>
 												全部 <em class="comment-total">0</em> 条   

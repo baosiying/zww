@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -37,38 +38,122 @@ window.lowie = 1;
 h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-170728.png*/!important;}
 .gray-head h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-170728.png*/!important;}
 </style>
+
+
+<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	$("#content a").click(function(){
+		$("#content .cur").removeAttr("class");
+		$(this).attr("class","cur");
+	});
+
+});
+
+
+//自己写一个去空格的方法
+  		
+  		String.prototype.trim=function(){
+			var l = this.replace(this.match(/^\s+/),"");
+			var r = l.replace(this.match(/\s+$/),"");
+			return r;
+		};
+  		
+  	
+  	
+  		//1.这个方法就是为了死活将XMLHttpRequest创建
+  		var xmlHttp;
+  		function createXMLHttp(){
+  			if(window.XMLHttpRequest){
+  				//火狐的内核
+  				xmlHttp = new XMLHttpRequest();
+  			}else{
+  				//IE的内核
+  				try{
+  					xmlHttp = new ActiveXObject("Msxml2.XMLHTTP");
+  				}catch(e){
+  					xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+  				}
+  			}
+  		}
+
+ function cx(object){
+ $(document).ready(function(){
+	$("#contine a").click(function(){
+		$("#contine .cur").removeAttr("class");
+		$(this).attr("class","cur");
+	});
+
+});
+            var id= object.id;
+            xmlHttp.open("GET","cxservelt?bid="+id,true);
+			xmlHttp.onreadystatechange=callback;
+			xmlHttp.send();
+  }
+
+
+	function callback(){
+			if(xmlHttp.readyState==4){
+				if(xmlHttp.status==200){
+					var result = xmlHttp.responseText;
+					result = result.trim();
+					alert(result);
+					if(result=="true"){
+					
+						//用表格干掉删除行
+						//var tbody = document.getElementById("mytbody");
+						// tr = document.getElementById(uid);
+						//tbody.removeChild(tr);
+					}
+				}
+			}
+		}
+ function wordssum(obje) {
+	var obj=obje.id;
+	alert(obj);
+}
+
+ function serializing(object) {
+	var obj=object.id;
+	alert(obj);
+}
+
+
+</script>
 </head>
 
 <body>
 
-<link rel="stylesheet" href="css/ba4a1388.css" >
+<div class="nav-group">
+	<link rel="stylesheet" href="css/ba4a1388.css">
   <div class="topbar minitype" id="topbar"> 
 
   <div class="main">
-        <h1><a href="../index.htm" >逐浪小说</a></h1>
+        <h1><a href="http://www.zhulang.com">逐浪小说</a></h1>
         
         <ul class="topnav">
           
-          <li  ><a href="../index.htm" >首页</a></li>
+          <li  ><a href="http://www.zhulang.com">首页</a></li>
  
-          <li class="cur"><a href="index.html" >书库</a></li>
+          <li ><a href="http://www.zhulang.com/shuku/index.html">书库</a></li>
          
-          <li  ><a href="javascript:if(confirm('http://www.zhulang.com/comic/index.html'))window.location='http://www.zhulang.com/comic/index.html'" >动漫</a></li>
+          <li  ><a href="http://www.zhulang.com/comic/index.html">动漫</a></li>
          
-          <li><a href="javascript:if(confirm('http://www.xxs8.com/'))window.location='http://www.xxs8.com/'" >新小说吧</a></li>
-          <li><a href="javascript:if(confirm('http://www.zhulang.com/fl/fltx.html?v=201903'))window.location='http://www.zhulang.com/fl/fltx.html?v=201903'" >作者福利</a></li>
-          <li><a href="javascript:if(confirm('https://writer.zhulang.com/index/index.html'))window.location='https://writer.zhulang.com/index/index.html'" >作家专区</a></li>
-          <li class="app"><a href="javascript:if(confirm('http://www.zhulang.com/app/'))window.location='http://www.zhulang.com/app/'" ><span>App下载</span></a>
+          <li><a href="http://www.xxs8.com" target="_blank">新小说吧</a></li>
+          <li><a href="http://www.zhulang.com/fl/fltx.html?v=201903"  target="_blank">作者福利</a></li>
+          <li><a href="https://writer.zhulang.com/index/index.html" target="_blank">作家专区</a></li>
+          <li class="app"><a href="http://www.zhulang.com/app/" target="_blank" data-drop="app"><span>App下载</span></a>
             <ul class="drop-menu">
               <li>
-                <a href="javascript:if(confirm('http://www.zhulang.com/app/'))window.location='http://www.zhulang.com/app/'" ><span>逐浪小说</span></a>
+                <a href="http://www.zhulang.com/app/" target="_blank"><span>逐浪小说</span></a>
               </li>
               <li>
-                <a href="javascript:if(confirm('https://writer.zhulang.com/invite/app.html?invite=111'))window.location='https://writer.zhulang.com/invite/app.html?invite=111'" ><span>写作助手</span></a>
+                <a href="https://writer.zhulang.com/invite/app.html?invite=111" target="_blank"><span>写作助手</span></a>
               </li>
             </ul>
           </li>
-          <li ><a href="javascript:if(confirm('http://pay.zhulang.com/pay/index.html'))window.location='http://pay.zhulang.com/pay/index.html'" >充值</a></li>
+          <li ><a href="http://pay.zhulang.com/pay/index.html">充值</a></li>
         </ul>
 
         <div  class="topsch" id="topsch">
@@ -78,23 +163,53 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
             <button class="cls"   type="reset"><i class="ticon ticon-delete"></i></button>
           </form>
         </div>
-                  <!-- 未登录状态 -->
+                  <script>
+            var zluser = {
+              nick: "",
+              uid : "",
+              type : "",
+              avatar : "image/19.png"
+              }
+          </script>
+          <!-- 已登录状态 -->
           <div class="user">
-            <a href="javascript:if(confirm('http://www.zhulang.com/user/center/index.html'))window.location='http://www.zhulang.com/user/center/index.html'" >
-              <img src="image/200.gif.png" >
+            <a href="http://www.zhulang.com/user/center/index.html" class="avt" data-drop="user">
+              <img src="image/19.png" alt="用户头像">
+              <em class="bge msgnum"></em>
             </a>
             <ul class="drop-menu">
-              
               <li>
-                <a href="javascript:if(confirm('http://www.zhulang.com/login/index.html'))window.location='http://www.zhulang.com/login/index.html'" >
-                  <i class="ticon ticon-user"></i>
-                  <span>立即登录</span>
+                <a href="http://www.zhulang.com/user/center/index.html">
+                  <span></span>
+                                  </a>
+              </li>
+              <li>
+                <a href="http://www.zhulang.com/user/shelf/history.html">
+                  <i class="ticon ticon-recent"></i>
+                  <span>最近阅读</span>
                 </a>
               </li>
-              
-            </ul>
+              <li>
+                <a href="http://www.zhulang.com/user/shelf/index.html">
+                  <i class="ticon ticon-shelf"></i>
+                  <span>我的书架</span>
+                </a>
+              </li>
+              <li>
+                <a href="http://www.zhulang.com/user/message/index.html">
+                  <i class="ticon ticon-message"></i>
+                  <span>站内信</span><em class="bge msgnum"></em>
+                </a>
+              </li>
+              <li>
+                <a href="http://www.zhulang.com/login/logout.html">
+                  <i class="ticon ticon-exit"></i>
+                  <span>退出</span>
+                </a>
+              </li>
+            </ul> 
           </div>
-          <!-- 未登录状态结束 -->
+          <!-- 已登录状态结束 -->
                 </div>
       </div><!-- end of topbar -->
       
@@ -151,200 +266,194 @@ div.page{ margin-top:20px;}
 				<h2 class="title">书库 <span class="tit-tab"><a href="javascript:" class="cur">男生</a> <a class="girl-cate" href="javascript:if(confirm('http://www.xxs8.com/shuku/index.html'))window.location='http://www.xxs8.com/shuku/index.html'" >女生</a></span></h2>
 				<div class="tag-group">
 		
-		<dl class="pilltags clearfix">
+		<dl class="pilltags clearfix" id="contine">
 			<dt>作品频道:</dt>
 			<dd>
-				<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >全部</a>
-							<a href="index/main/00/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html"  >新书</a>
-							<a href="index/main/01/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html"  >武侠</a>
-							<a href="index/main/02/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html"  >玄幻</a>
-							<a href="index/main/04/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html"  >历史</a>
-							<a href="index/main/05/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html"  >都市</a>
-							<a href="index/main/06/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html"  >科幻</a>
-							<a href="index/main/07/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html"  >游戏</a>
-							<a href="index/main/08/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html"  >灵异</a>
-							<a href="index/main/09/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html"  >竞技</a>
-							<a href="index/main/10/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html"  >奇幻</a>
-							<a href="index/main/11/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html"  >仙侠</a>
-							<a href="index/main/12/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html"  >现实</a>
-							<a href="index/main/13/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html"  >军事</a>
-							<a href="index/main/14/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html"  >二次元</a>
-							<a href="index/main/15/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html"  >短篇</a>
+				<a onclick="cx()" id="0" >全部</a>
+							<a onclick="cx(this)" id="1" >新书</a>
+							<a onclick="cx(this)" id="2">武侠</a>
+							<a  onclick="cx(this)" id="3">玄幻</a>
+							<a onclick="cx(this)" id="4" >历史</a>
+							<a onclick="cx(this)" id="5"  >都市</a>
+							<a onclick="cx(this)" id="6" >科幻</a>
+							<a onclick="cx(this)" id="7" >游戏</a>
+							<a onclick="cx(this)" id="8" >灵异</a>
+							<a onclick="cx(this)" id="9" >竞技</a>
+							<a onclick="cx(this)"id="10" >仙侠</a>
+							<a onclick="cx(this)" id="11">现实</a>
+							<a onclick="cx(this)" id="12" >军事</a>
+							<a onclick="cx(this)" id="13">二次元</a>
+							<a onclick="cx(this)" id="14" >短篇</a>
 						</dd>
 		</dl>
 		
-		<dl class="pilltags clearfix">
+		<dl class="pilltags clearfix" id="content">
 			<dt>作品小类:</dt>
 			<dd>
-			<a 					class="cur"
-				href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >全部</a>
-															<a  href="index/main/all/sub/0000/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >新书</a>   
-																				<a  href="index/main/all/sub/0101/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >传统武侠</a>   
-																				<a  href="index/main/all/sub/0105/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >武侠幻想</a>   
-																				<a  href="index/main/all/sub/0106/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >国术无双</a>   
-																				<a  href="index/main/all/sub/0107/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >古武未来</a>   
-																				<a  href="index/main/all/sub/0201/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >异世大陆</a>   
-																				<a  href="index/main/all/sub/0203/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >转世重生</a>   
-																				<a  href="index/main/all/sub/0204/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >东方玄幻</a>   
-																				<a  href="index/main/all/sub/0206/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >王朝争霸</a>   
-																				<a  href="index/main/all/sub/0208/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >高武世界</a>   
-																				<a  href="index/main/all/sub/0401/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >野史传记</a>   
-																				<a  href="index/main/all/sub/0402/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >架空历史</a>   
-																				<a  href="index/main/all/sub/0404/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >三国魏晋</a>   
-																				<a  href="index/main/all/sub/0408/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >上古秦汉</a>   
-																				<a  href="index/main/all/sub/0409/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >唐宋元明</a>   
-																				<a  href="index/main/all/sub/0410/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >清史民国</a>   
-																				<a  href="index/main/all/sub/0411/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >外国历史</a>   
-																				<a  href="index/main/all/sub/0501/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >异能奇术</a>   
-																				<a  href="index/main/all/sub/0504/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >都市江湖</a>   
-																				<a  href="index/main/all/sub/0505/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >官场沉浮</a>   
-																				<a  href="index/main/all/sub/0506/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >职场商海</a>   
-																				<a  href="index/main/all/sub/0507/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >校园生活</a>   
-																				<a  href="index/main/all/sub/0508/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >都市生活</a>   
-																				<a  href="index/main/all/sub/0509/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >娱乐明星</a>   
-																				<a  href="index/main/all/sub/0510/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >古玩风水</a>   
-																				<a  href="index/main/all/sub/0511/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >乡土种田</a>   
-																				<a  href="index/main/all/sub/0601/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >未来世界</a>   
-																				<a  href="index/main/all/sub/0602/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >星际文明</a>   
-																				<a  href="index/main/all/sub/0603/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >古武机甲</a>   
-																				<a  href="index/main/all/sub/0605/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >超级科技</a>   
-																				<a  href="index/main/all/sub/0606/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >进化变异</a>   
-																				<a  href="index/main/all/sub/0607/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >末世危机</a>   
-																				<a  href="index/main/all/sub/0701/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >游戏异界</a>   
-																				<a  href="index/main/all/sub/0702/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >虚拟网游</a>   
-																				<a  href="index/main/all/sub/0703/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >电子竞技</a>   
-																				<a  href="index/main/all/sub/0704/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >游戏系统</a>   
-																				<a  href="index/main/all/sub/0705/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >游戏主播</a>   
-																				<a  href="index/main/all/sub/0801/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >神秘时空</a>   
-																				<a  href="index/main/all/sub/0802/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >灵异鬼怪</a>   
-																				<a  href="index/main/all/sub/0803/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >恐怖惊悚</a>   
-																				<a  href="index/main/all/sub/0804/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >悬疑侦探</a>   
-																				<a  href="index/main/all/sub/0805/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >寻墓探险</a>   
-																				<a  href="index/main/all/sub/0806/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >风水秘术</a>   
-																				<a  href="index/main/all/sub/0901/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >足球运动</a>   
-																				<a  href="index/main/all/sub/0902/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >篮球运动</a>   
-																				<a  href="index/main/all/sub/0903/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >体坛风云</a>   
-																				<a  href="index/main/all/sub/0905/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >棋牌博弈</a>   
-																				<a  href="index/main/all/sub/1001/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >现代魔法</a>   
-																				<a  href="index/main/all/sub/1002/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >剑与魔法</a>   
-																				<a  href="index/main/all/sub/1003/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >史诗奇幻</a>   
-																				<a  href="index/main/all/sub/1004/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >黑暗幻想</a>   
-																				<a  href="index/main/all/sub/1005/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >历史神话</a>   
-																				<a  href="index/main/all/sub/1006/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >另类幻想</a>   
-																				<a  href="index/main/all/sub/1101/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >修真文明</a>   
-																				<a  href="index/main/all/sub/1102/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >幻想修仙</a>   
-																				<a  href="index/main/all/sub/1103/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >现代修真</a>   
-																				<a  href="index/main/all/sub/1104/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >洪荒神话</a>   
-																				<a  href="index/main/all/sub/1105/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >古典仙侠</a>   
-																				<a  href="index/main/all/sub/1201/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >生活时尚</a>   
-																				<a  href="index/main/all/sub/1202/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >文学艺术</a>   
-																				<a  href="index/main/all/sub/1203/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >成功励志</a>   
-																				<a  href="index/main/all/sub/1204/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >青春文学</a>   
-																				<a  href="index/main/all/sub/1205/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >爱情婚姻</a>   
-																				<a  href="index/main/all/sub/1206/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >现实百态</a>   
-																				<a  href="index/main/all/sub/1207/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >耽美言情</a>   
-																				<a  href="index/main/all/sub/1301/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >军旅生涯</a>   
-																				<a  href="index/main/all/sub/1302/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >现代军事</a>   
-																				<a  href="index/main/all/sub/1303/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >战争幻想</a>   
-																				<a  href="index/main/all/sub/1304/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >抗战烽火</a>   
-																				<a  href="index/main/all/sub/1305/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >谍战特工</a>   
-																				<a  href="index/main/all/sub/1401/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >变身入替</a>   
-																				<a  href="index/main/all/sub/1402/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >原生幻想</a>   
-																				<a  href="index/main/all/sub/1403/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >青春日常</a>   
-																				<a  href="index/main/all/sub/1404/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >衍生同人</a>   
-																				<a  href="index/main/all/sub/1405/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >搞笑吐槽</a>   
-																				<a  href="index/main/all/sub/1501/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >散文诗词</a>   
-																				<a  href="index/main/all/sub/1502/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >人物传记</a>   
-																				<a  href="index/main/all/sub/1503/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >影视剧本</a>   
-																				<a  href="index/main/all/sub/1504/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >评论文集</a>   
-																				<a  href="index/main/all/sub/1505/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >生活随笔</a>   
-																				<a  href="index/main/all/sub/1506/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >美文游记</a>   
-																				<a  href="index/main/all/sub/1507/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >儿童文学</a>   
-																				<a  href="index/main/all/sub/1508/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >短篇小说</a>   
-																				<a  href="index/main/all/sub/1509/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >其他作品</a>   
+			<a 					class="cur">全部</a>
+															<a >新书</a>   
+																				<a>传统武侠</a>   
+																				<a >武侠幻想</a>   
+																				<a >国术无双</a>   
+																				<a >古武未来</a>   
+																				<a >异世大陆</a>   
+																				<a >转世重生</a>   
+																				<a >东方玄幻</a>   
+																				<a >王朝争霸</a>   
+																				<a >高武世界</a>   
+																				<a >野史传记</a>   
+																				<a >架空历史</a>   
+																				<a  >三国魏晋</a>   
+																				<a  >上古秦汉</a>   
+																				<a >唐宋元明</a>   
+																				<a >清史民国</a>   
+																				<a >外国历史</a>   
+																				<a >异能奇术</a>   
+																				<a  >都市江湖</a>   
+																				<a  >官场沉浮</a>   
+																				<a  >职场商海</a>   
+																				<a  >校园生活</a>   
+																				<a  >都市生活</a>   
+																				<a  >娱乐明星</a>   
+																				<a  >古玩风水</a>   
+																				<a  >乡土种田</a>   
+																				<a   >未来世界</a>   
+																				<a   >星际文明</a>   
+																				<a   >古武机甲</a>   
+																				<a  >超级科技</a>   
+																				<a   >进化变异</a>   
+																				<a  >末世危机</a>   
+																				<a  >游戏异界</a>   
+																				<a  >虚拟网游</a>   
+																				<a  >电子竞技</a>   
+																				<a   >游戏系统</a>   
+																				<a >游戏主播</a>   
+																				<a   >神秘时空</a>   
+																				<a   >灵异鬼怪</a>   
+																				<a >恐怖惊悚</a>   
+																				<a >悬疑侦探</a>   
+																				<a   >寻墓探险</a>   
+																				<a  >风水秘术</a>   
+																				<a  >足球运动</a>   
+																				<a  >篮球运动</a>   
+																				<a   >体坛风云</a>   
+																				<a   >棋牌博弈</a>   
+																				<a   >现代魔法</a>   
+																				<a   >剑与魔法</a>   
+																				<a   >史诗奇幻</a>   
+																				<a  >黑暗幻想</a>   
+																				<a   >历史神话</a>   
+																				<a >另类幻想</a>   
+																				<a   >修真文明</a>   
+																				<a   >幻想修仙</a>   
+																				<a   >现代修真</a>   
+																				<a   >洪荒神话</a>   
+																				<a  >古典仙侠</a>   
+																				<a >生活时尚</a>   
+																				<a   >文学艺术</a>   
+																				<a >成功励志</a>   
+																				<a  >青春文学</a>   
+																				<a  >爱情婚姻</a>   
+																				<a   >现实百态</a>   
+																				<a >耽美言情</a>   
+																				<a >军旅生涯</a>   
+																				<a  >现代军事</a>   
+																				<a  >战争幻想</a>   
+																				<a   >抗战烽火</a>   
+																				<a  >谍战特工</a>   
+																				<a  >变身入替</a>   
+																				<a  >原生幻想</a>   
+																				<a  >青春日常</a>   
+																				<a   >衍生同人</a>   
+																				<a   >搞笑吐槽</a>   
+																				<a   >散文诗词</a>   
+																				<a  >人物传记</a>   
+																				<a  >影视剧本</a>   
+																				<a  >评论文集</a>   
+																				<a  >生活随笔</a>   
+																				<a  >美文游记</a>   
+																				<a   >儿童文学</a>   
+																				<a   >短篇小说</a>   
+																				<a   >其他作品</a>   
 												</dd>
 		</dl>
-		<dl class="pilltags clearfix">
+		<dl class="pilltags clearfix" id="content">
 			<dt>是否精品</dt>
 			<dd>					<a 						class="cur"
-					 href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >不限</a>
-									<a  href="index/main/all/sub/all/star/1/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >精品作品</a>
+					>不限</a>
+									<a   >精品作品</a>
 							</dd>
 		</dl>
 		<dl class="pilltags clearfix">
 			<dt>作品字数</dt>
-			<dd>								<a 									class="cur"
-								 href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >不限</a>
-															<a  href="index/main/all/sub/all/star/0/size/1/flag/0/time/0/type/0/order/0/ini/0.html" >30万以下</a>
-															<a  href="index/main/all/sub/all/star/0/size/2/flag/0/time/0/type/0/order/0/ini/0.html" >30万-50万</a>
-															<a  href="index/main/all/sub/all/star/0/size/3/flag/0/time/0/type/0/order/0/ini/0.html" >50万-100万</a>
-															<a  href="index/main/all/sub/all/star/0/size/4/flag/0/time/0/type/0/order/0/ini/0.html" >100万-200万</a>
-															<a  href="index/main/all/sub/all/star/0/size/5/flag/0/time/0/type/0/order/0/ini/0.html" >200万以上</a>
+			<dd>			
+			<a 	class="cur"	 onclick="wordssum(this)" id="0">不限</a>
+															<a onclick="wordssum(this)" id="1">30万以下</a>
+															<a  onclick="wordssum(this)" id="2" >30万-50万</a>
+															<a  onclick="wordssum(this)" id="3">50万-100万</a>
+															<a onclick="wordssum(this)" id="4" >100万-200万</a>
+															<a  onclick="wordssum(this)" id="5" >200万以上</a>
 										</dd>
 		</dl>
 				<dl class="pilltags clearfix">
 			<dt>是否完结:</dt>
 			<dd>
-											<a 									class="cur"
-								 href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >不限</a>
-															<a  href="index/main/all/sub/all/star/0/size/0/flag/1/time/0/type/0/order/0/ini/0.html" >连载中</a>
-															<a  href="index/main/all/sub/all/star/0/size/0/flag/2/time/0/type/0/order/0/ini/0.html" >已完结</a>
+											<a onclick="serializing(this)" id="0"  >不限</a>
+															<a onclick="serializing(this)" id="1"  >连载中</a>
+															<a  onclick="serializing(this)" id="2"  >已完结</a>
 										</dd>
 		</dl>
 				
-		<dl class="pilltags clearfix">
+		<dl class="pilltags clearfix" id="content">
 			<dt>更新时间:</dt>
 			<dd> 
-											<a 									class="cur"
-								 href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >不限</a>  
-															<a  href="index/main/all/sub/all/star/0/size/0/flag/0/time/1/type/0/order/0/ini/0.html" >三日内</a>  
-															<a  href="index/main/all/sub/all/star/0/size/0/flag/0/time/2/type/0/order/0/ini/0.html" >七日内</a>  
-															<a  href="index/main/all/sub/all/star/0/size/0/flag/0/time/3/type/0/order/0/ini/0.html" >半月内</a>  
-															<a  href="index/main/all/sub/all/star/0/size/0/flag/0/time/4/type/0/order/0/ini/0.html" >一月内</a>  
+											<a 		class="cur">不限</a>  
+															<a >三日内</a>  
+															<a  >七日内</a>  
+															<a  >半月内</a>  
+															<a  >一月内</a>  
 										</dd>
 		</dl>
-		<dl class="pilltags clearfix">
+		<dl class="pilltags clearfix" id="content">
 			<dt>排序方式:</dt>
 			<dd> 
-											<a 									class="cur"
-								 href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >默认</a>   
-															<a  href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/1/ini/0.html" >更新时间</a>   
-															<a  href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/2/ini/0.html" >点击数</a>   
-															<a  href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/4/ini/0.html" >鲜花数</a>   
+											<a 									class="cur" >默认</a>   
+															<a >更新时间</a>   
+															<a  >点击数</a>   
+															<a >鲜花数</a>   
 										</dd>
 		</dl>
 		
-		<dl class="pilltags clearfix">
+		<dl class="pilltags clearfix" id="content">
 			<dt>按首字母:</dt>
 			<dd>
-																					<a 									class="cur"
-								 href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/0.html" >不限</a>
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/A.html" >A</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/B.html" >B</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/C.html" >C</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/D.html" >D</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/E.html" >E</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/F.html" >F</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/G.html" >G</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/H.html" >H</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/I.html" >I</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/J.html" >J</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/K.html" >K</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/L.html" >L</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/M.html" >M</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/N.html" >N</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/O.html" >O</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/P.html" >P</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/Q.html" >Q</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/R.html" >R</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/S.html" >S</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/T.html" >T</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/U.html" >U</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/V.html" >V</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/W.html" >W</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/X.html" >X</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/Y.html" >Y</a> 
-																												<a href="index/main/all/sub/all/star/0/size/0/flag/0/time/0/type/0/order/0/ini/Z.html" >Z</a> 
+																					<a 									class="cur">不限</a>
+																												<a  >A</a> 
+																												<a  >B</a> 
+																												<a>C</a> 
+																												<a >D</a> 
+																												<a >E</a> 
+																												<a >F</a> 
+																												<a  >G</a> 
+																												<a >H</a> 
+																												<a  >I</a> 
+																												<a  >J</a> 
+																												<a  >K</a> 
+																												<a  >L</a> 
+																												<a  >M</a> 
+																												<a >N</a> 
+																												<a >O</a> 
+																												<a >P</a> 
+																												<a >Q</a> 
+																												<a  >R</a> 
+																												<a>S</a> 
+																												<a  >T</a> 
+																												<a  >U</a> 
+																												<a  >V</a> 
+																												<a  >W</a> 
+																												<a  >X</a> 
+																												<a  >Y</a> 
+																												<a  >Z</a> 
 																</dd>
 		</dl>
 		</div>
@@ -360,7 +469,7 @@ div.page{ margin-top:20px;}
 			</tr>
 		</thead>
 		<tbody>
-									<tr>
+		<tr>
 			<td>1</td>
 						<td>
 				<a class="gray" href="javascript:if(confirm('http://www.zhulang.com/category/index/class/05.html'))window.location='http://www.zhulang.com/category/index/class/05.html'" >[异能奇术]</a>&nbsp;&nbsp;
@@ -786,7 +895,7 @@ div.page{ margin-top:20px;}
 				<a class="gray" href="javascript:if(confirm('http://www.zhulang.com/category/index/class/14.html'))window.location='http://www.zhulang.com/category/index/class/14.html'" >[衍生同人]</a>&nbsp;&nbsp;
 				<a target="_blank" href="javascript:if(confirm('http://www.zhulang.com/674278/'))window.location='http://www.zhulang.com/674278/'" >崩坏三之死士降临</a>
 				<span>
-				<a href="javascript:if(confirm('http://book.zhulang.com/674278/64648.html'))window.location='http://book.zhulang.com/674278/64648.html'" >第五章：标题娘离家出走了 ˚‧º·˚ ˃̣̣...</a>
+				<a href="javascript:if(confirm('http://book.zhulang.com/674278/64648.html'))window.location='http://book.zhulang.com/674278/64648.html'" >第五章：标题娘离家出走了 ??o·? ???...</a>
 				</span>
 			</td>
 			<td><a href="javascript:if(confirm('http://www.zhulang.com/author/index.html'))window.location='http://www.zhulang.com/author/index.html'" >封龙宇</a></td>

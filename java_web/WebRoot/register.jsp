@@ -8,93 +8,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    
-    <title>欢迎来到逐浪中文网注册界面</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-     <style>
-  * {
-  box-sizing: border-box;
-}
+	 <meta charset=utf-8"utf-8">
+     <title>欢迎来到逐浪中文网注册界面</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="keywords" content="逐浪,文学,原创文学,原创文学平台,小说,zhulang">
+    <meta name="description" content="逐浪 zhulang.com -">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="http://www.zhulang.com/favicon.ico"/>
+    <link rel="stylesheet" href="css/common.css-v=11661.css" >
+    <link rel="stylesheet" href="css/logreg.css-v=11661.css" >
+    <script src="js/jquery-1.11.1.min.js" ></script>
+<script src="js/require.js" ></script>
+<script src="js/reqcfg.js-v=2995" ></script>
+<!--c6 headerjs-->
+<!--[if lt IE 9]>
+<link rel="stylesheet" href="css/iefix.css" >
+<script src="js/html5shiv.min.js" ></script>
+<script>
+window.lowie = 1;
+</script>
+<script src="js/iefix.js" ></script>    
+<![endif]-->
+	<style>
+h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-170728.png*/!important;}
+.gray-head h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-170728.png*/!important;}
+   </style>
+	    <style>
+    .log-con li{ margin-bottom: 10px;}
+    .log-con input.txt{ height: 48px; }
+    .lowie  .log-con input.txt{ line-height: 48px; }
+    .log-con  .cmn-char-code{ height: 48px; padding-right: 112px;}
+    .log-con  .cmn-char-code .verifyimg{ height: 46px; width: 112px;}
+    .log-btn .btn-submit{ height: 46px;}
+    .gray-head .main h1.zl-logo{ margin: 0 auto; background:url("image/logo-170728.png")/*tpa=image/logo-170728.png*/ center center no-repeat; }
+    </style>
 
-body {
-  margin: 0;
-}
-
-//1.页面总布局
-//头部区域内容样式
-/* 头部样式 */
-.header {
-  background-color: #f1f1f1;
-  padding: 20px;
-  text-align: center;
-  height:200px;
-}
-
-
-
-
-body{
-       background-color:#ebf6f7;
-}
-
-
- #parent{
-            width: 1000px;
-            height: 700px;
-            background-color: #ebf6f7;
-            overflow: hidden;
-        }
-  #child{
-          width:500px;
-          height:500px;
-         background-color:#eaf4fc;
-  }
-    
-    
-    
-    .file {
-    position: relative;
-    display: inline-block;
-    background: #D0EEFF;
-    border: 1px solid #99D3F5;
-    border-radius: 4px;
-    padding: 4px 12px;
-    overflow: hidden;
-    color: #1E88C7;
-    text-decoration: none;
-    text-indent: 0;
-    line-height: 20px;
-}
-.file input {
-    position: absolute;
-    font-size: 100px;
-    right: 0;
-    top: 0;
-    opacity: 0;
-}
-.file:hover {
-    background: #AADFFD;
-    border-color: #78C3F3;
-    color: #004974;
-    text-decoration: none;
-}
-    
- .button1:hover {
-    background-color: #008CBA;
-    color: white;
-     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-}
-    
-    
-</style>
 
 <script type="text/javascript">
 	        //定义一个trim去空格的方法
@@ -166,81 +114,64 @@ body{
 				document.getElementById("photodata").value=data;
 			};
 		}
-		
-		
-		
+	
 	</script>
 	
-
-
-
  </head>
-  
   <body>
- 
-<div class="header">
-  <center>
-       <img alt="" src="/java_web/image/logo-170728.png">
-  </center>
+ <div class="gray-head">
+  <div class="main">
+    <h1 class="zl-logo logo-trans"><a href="../index.htm" >逐浪 zhulang.com</a></h1>
+  </div>
 </div>
-<hr>
 
- <div id="parent">
- </br>
- </br>
- </br>
- </br>
- </br>
- </br>
- </br>
- </br>
- <center>
-    <div id="child" >
-         <form action="register" method="post"  enctype="multipart/form-data">
-           
-              <div><img id="myimg"  width="80px" height="80px"/ ></div>
-              </br>
-        <div id="nam">
-        用户名：<input type="text" name="uname"  id="uname" onblur="registerByPost()" placeholder="请输入用户名"/>
-        <div id="dname" style="display:inline" width="50px" height="50px"/></div></br>
-        </div>
-        </br>
-        
-      <div id="pas" >
-    密&nbsp;&nbsp;&nbsp;&nbsp;码:<input type="password" name="upassword" id="upasseord" placeholder="请输入密码"/>
-       </div>
-         </br>
-         
-        <input type="hidden" name="photodata" id="photodata"/>
+  <div class="main">
   
-   </br>
-      <div >图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像:</div>
-      </br>
-       <div id="file" >
-             <a href="javascript:;" class="a-upload">
+  <div class="reg-main">
+  	
+    <form action="register" method="post" id="logForm"  class="valid-form"   ignoreAutoCheckEvent="true" target="logFormIframe">
+
+     <div class="reg-con log-con" align="center">
+           <li>
+                <img id="myimg"  width="200px" height="200px"/ >
+            </li>
+     
+     </div>
+      <div class="reg-con log-con">
+              	
+      	<ul>
+            <li>
+              <input type="text" class="txt" name="username" reqmsg="用户名/手机号/信箱" datatype="text" maxlength="30" placeholder="用户名/手机号/信箱" focusmsg="用户名/手机号/信箱" autocomplete="off">
+            </li>
+            
+            <li>
+              <input class="txt" type="password" name="password"  datatype="text"reqmsg="密码" errmsg="请填写密码" placeholder="密码">
+            </li>
+
+                        <li>
+            	<div class="cmn-char-code">
+                	<input type="text" class="txt" name="charcode" emel="#char-code-err" reqmsg="验证码" errmsg="验证码为5位" datatype="text" maxlength="5" placeholder="验证码" autocomplete="off"><img src="image/verify.html.png" >
+                </div>
+              	<em id="char-code-err"></em>
+            </li>
+                     <li>
+                     图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像:
+                      <a href="javascript:;" class="a-upload">
                       <input type="file" name="photo" onchange="upload(this)"/>
               </a>
-       </div>
-       
-       
-         </br>
-         
-         <div id="code">
-           验证码:<input type="text" name="clientCode" placeholder="请输入验证码">&nbsp;&nbsp;<!--验证码图片--><img src="img" onclick="changeImg(this)"/>
-         </div>
-         </br>  
-         
-         <div id="rigs" >
-             <input type="submit" value="注册" class="button1"/> 
-         </div>
-         </form> 
-      </div>
-     </center>
-   </div>
-  
+            </li>
+                       <li>
+                 <input type="submit" value="注册" class="btn btn-primary btn-block btn-submit"/> 
+            </li>
+          </ul>
+      </div>   
+      </form>
+    </div>
+</div>
 
 
   
   
   </body>
 </html>
+

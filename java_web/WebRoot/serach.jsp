@@ -1,3 +1,4 @@
+<%@page import="cn.pojo.Book"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -144,13 +145,15 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
 </div>
 <!--end of nav group -->
 
+<%   List<Book> list=(List) request.getAttribute("list"); %>
+
 <div class="main">
     <div class="mian-row clearfix">
         <div>
             <div class="sch-result st-list" id="sch-result">
             	<div class="bdrbox sch-res-top">
                 	<p class="fl">
-                    	共查询到1本与<strong>“万古狂尊”</strong>相关的小说
+                    	共查询<%=list.size() %>本与<strong>“万古狂尊”</strong>相关的小说
                     </p>
                     <div class="fr list-style">
                     	<label>显示方式</label>

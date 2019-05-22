@@ -2,12 +2,18 @@ package cn.web.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.pojo.Book;
+import cn.service.BookService;
+import cn.service.impl.BookServiceImpl;
+
+//²éÑ¯ÓÃµÄservlet
 public class TopschServlet extends HttpServlet {
 
 	/**
@@ -54,7 +60,12 @@ public class TopschServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String bname= request.getParameter("bname");
+		BookService b=new BookServiceImpl();
 		System.out.println(bname);
+		List<Book> list=b.selectStudentByName(bname);
+		System.out.println(list);
+		request.setAttribute("list",list);
+		request.getRequestDispatcher("serach.jsp").forward(request, response);
 	}
 
 	/**

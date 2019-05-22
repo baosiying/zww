@@ -59,12 +59,14 @@ public class LoginServlet extends HttpServlet {
 		   //拿到session中存的验证码
 		    String code=request.getSession().getAttribute("code").toString();
 		    System.out.println(code);
-		    //拿到权限按钮中的值(默认勾选值为1)
+		    //拿到权限按钮中的值(默认勾选值为1是管理员,为空就是用户或作者)
 		    String quanxian=request.getParameter("quanxian");
 		    System.out.println(quanxian);
-		    if(code.equals(clientCode)){
-		    	  response.sendRedirect("show.jsp");
+		    if(code.equals(clientCode)&&quanxian==null){
+		    	response.sendRedirect("show.jsp");
 		    }
+	}
+		   
 	/**
 	 * Initialization of the servlet. <br>
 	 *

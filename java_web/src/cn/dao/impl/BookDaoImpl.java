@@ -75,7 +75,7 @@ public class BookDaoImpl implements BookDao{
 				return list;
 		}
 
-		//根据bid通过联表查询出书籍的类型
+		//根据bid查询出书籍的类型
 		public String selectBookTypeById(int bid, Connection conn) throws Exception {
 			String sql="select tname from type where tid in(select type from book where bid=?)";
 			PreparedStatement ps=conn.prepareStatement(sql);

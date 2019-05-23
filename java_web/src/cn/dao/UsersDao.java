@@ -5,6 +5,6 @@ import java.sql.Connection;
 import cn.pojo.Users;
 
 public interface UsersDao {
-      //根据传过来的用户名进行查询是否存在此人
+      //鏍规嵁浼犺繃鏉ョ殑鐢ㄦ埛鍚嶈繘琛屾煡璇㈡槸鍚﹀瓨鍦ㄦ浜�
 	   public Users selectUsersByUname(String uname,Connection conn) throws Exception;
 }

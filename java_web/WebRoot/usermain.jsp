@@ -12,11 +12,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--[if (gt IE 9)|!(IE)]><!--><html class="" lang="zh-cn"><!--<![endif]-->
 <head>
     <meta charset="utf-8">
-    <title>小海豚_67604708 - 个人中心 - 逐浪 </title>
+    <title>个人中心 - 逐浪 </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="renderer" content="webkit" />
-    <meta name="keywords" content="小海豚_67604708个人中心,逐浪,文学,原创文学,原创文学平台,小说,zhulang">
-    <meta name="description" content="小海豚_67604708个人中心 - 逐浪 zhulang.com -">
+    <meta name="keywords" content="个人中心,逐浪,文学,原创文学,原创文学平台,小说">
+    <meta name="description" content="个人中心 - 逐浪 zhulang.com -">
     <link rel="stylesheet" href="css/common.css" type="text/css">
     <link rel="stylesheet" href="css/ucenter.css" type="text/css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://www.zhulang.com/favicon.ico"/>
@@ -85,11 +85,11 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
           <li ><a href="http://pay.zhulang.com/pay/index.html">充值</a></li>
         </ul>
 
-        <div class="topsch" id="topsch">
-          <form action="http://www.zhulang.com/search/index.html" method="post">
-            <input type="text" name="k" value="" maxlength="50" placeholder="书名或作者">
-            <button class="sch" type="submit"><i class="ticon ticon-search"></i></button>
-            <button class="cls" type="reset"><i class="ticon ticon-delete"></i></button>
+       <div  class="topsch" id="topsch">
+          <form action="topsch"   method="post">
+            <input type="text" name="bname" value="" maxlength="50" placeholder="书名或作者">
+            <button class="sch" type="submit"  ><i class="ticon ticon-search"></i></button>
+            <button class="cls"   type="reset"><i class="ticon ticon-delete"></i></button>
           </form>
         </div>
                   <script>

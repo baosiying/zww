@@ -1,24 +1,24 @@
 package cn.pojo;
 
-//�û�����
+//锟矫伙拷锟斤拷锟斤拷
 public class Users {
 	private int uid;
 	private String uaccount;
 	private String upassword;
 	private String uname;
-	//�û�ͷ��
+	//头像
 	private String uimage;
-	//�û�ӵ�е���Ʊ��
+	//月票
 	private int monthlynumber;
-	//�û�ӵ�е��Ƽ�Ʊ��
+	//推荐票数
 	private int recommend;
-	//�û��ȼ���1Ϊ��ͨ�û���2Ϊ��Ա��
+	//用户等级（权限 0和1）
 	private int ugrade;
-	//�û����飨��Ա�����û����飬��Ա��1�ۼӵ���31��Ա�������ͨ�û�Ϊ0��
+	//经验等级
 	private int egrade;
-	//�û����鼮�ղ�
+	//收藏书
 	private String ucollectb;
-	//�û����Ƽ��鼮
+	//推介书
 	private String urb;
 	public int getUid() {
 		return uid;

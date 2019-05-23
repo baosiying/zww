@@ -2,4 +2,5 @@ eclipse.preferences.version=1
 encoding//WebRoot/serach.jsp=UTF-8
 encoding//src/cn/dao/UsersDao.java=UTF-8
 encoding//src/cn/pojo/Users.java=UTF-8
+encoding//src/cn/web/servlet/LoginServlet.java=UTF-8
 encoding//src/cn/web/servlet/TopschServlet.java=UTF-8

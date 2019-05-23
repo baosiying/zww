@@ -57,30 +57,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <button class="cls"   type="reset"><i class="ticon ticon-delete"></i></button>
           </form>
         </div>
-				    <script>
+				     <script>
             var zluser = {
               nick: "",
               uid : "",
               type : "",
-              avatar : "image/200.gif.png"
+              avatar : "image/19.png"
               }
           </script>
-				<!-- 未登录状态 -->
-					<div class="user">
-						<a href="login/index.html" >
-							<img src="image/18.png" >
-						</a>
-						<ul class="drop-menu">
-							
-							<li>
-								<a href="login/index.html" >
-									<i class="iconfont icon-user"></i>
-									<span>立即登录</span>
-								</a>
-							</li>
-							
-						</ul>
-					</div>
+          <!-- 已登录状态 -->
+          <div class="user">
+            <a href="http://www.zhulang.com/user/center/index.html" class="avt" data-drop="user">
+              <img src="image/19.png" alt="用户头像">
+              <em class="bge msgnum"></em>
+            </a>
+            <ul class="drop-menu">
+              <li>
+                <a href="http://www.zhulang.com/user/center/index.html">
+                  <span></span>
+                                  </a>
+              </li>
+              <li>
+                <a href="http://www.zhulang.com/user/shelf/history.html">
+                  <i class="ticon ticon-recent"></i>
+                  <span>最近阅读</span>
+                </a>
+              </li>
+              <li>
+                <a href="http://www.zhulang.com/user/shelf/index.html">
+                  <i class="ticon ticon-shelf"></i>
+                  <span>我的书架</span>
+                </a>
+              </li>
+              <li>
+                <a href="http://www.zhulang.com/user/message/index.html">
+                  <i class="ticon ticon-message"></i>
+                  <span>站内信</span><em class="bge msgnum"></em>
+                </a>
+              </li>
+              <li>
+                <a href="http://www.zhulang.com/login/logout.html">
+                  <i class="ticon ticon-exit"></i>
+                  <span>退出</span>
+                </a>
+              </li>
+            </ul> 
+          </div>
 					<!-- 未登录状态结束 -->
 								</div>
 			</div><!-- end of topbar -->

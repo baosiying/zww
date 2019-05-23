@@ -105,7 +105,7 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
             <input type="checkbox" name="quanxian" value="1">
             是否是管理员</label>
             <span class="fr">
-            	<a href="javascript:if(confirm('http://www.zhulang.com/forget/index.html'))window.location='http://www.zhulang.com/forget/index.html'" >注册</a>
+            	<a href="register.jsp" >注册</a>
             </span>
         </p>
        </form>

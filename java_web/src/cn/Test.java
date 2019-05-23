@@ -4,15 +4,20 @@ import java.util.List;
 
 import cn.pojo.Book;
 import cn.service.BookService;
+import cn.service.UsersService;
 import cn.service.impl.BookServiceImpl;
+import cn.service.impl.UsersServiceImpl;
 
 public class Test {
 
-	public static void main(String[] args) {
-		//²âÊÔ
+	public static void main(String[] args) throws Exception {
+		//ï¿½ï¿½ï¿½ï¿½
 		BookService b=new BookServiceImpl();
-		List<Book> list=b.selectStudentByName("Íò");
+		List<Book> list=b.selectStudentByName("ï¿½ï¿½");
 		System.out.println(list.size());
+		//æŸ¥è¯¢ç”¨æˆ·
+		UsersService s=new UsersServiceImpl();
+		System.out.println(s.selectUsersByUname("aaa"));
 	}
 
 }

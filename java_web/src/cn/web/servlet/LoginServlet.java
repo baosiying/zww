@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import cn.pojo.Users;
+import cn.service.UsersService;
+import cn.service.impl.UsersServiceImpl;
+
 public class LoginServlet extends HttpServlet {
 
 	/**
@@ -62,8 +66,25 @@ public class LoginServlet extends HttpServlet {
 		    //拿到权限按钮中的值(默认勾选值为1是管理员,为空就是用户或作者)
 		    String quanxian=request.getParameter("quanxian");
 		    System.out.println(quanxian);
-		    if(code.equals(clientCode)&&quanxian==null){
-		    	response.sendRedirect("show.jsp");
+		    //拿到客户输入的用户名
+		     String uname=request.getParameter("uname");
+		     //拿到客户输入的密码
+		     String upassword=request.getParameter("upassword");
+		     UsersService service=new UsersServiceImpl();
+		     Users u=null;
+		     //根据用户名进行查询此人是否存在
+		     try {
+				    u=service.selectUsersByUname(uname);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		    //权限按钮中的值为空进入用户界面,否则进入管理员界面
+		    if(code.equals(clientCode)&&quanxian==null&&u!=null){
+		    	    //将用户名存入session中
+		    	    request.getSession().setAttribute("uname", uname);
+		    	    request.getRequestDispatcher("index.jsp").forward(request,response);
+		    }else{
+		    	    response.sendRedirect("login.jsp");
 		    }
 	}
 		   

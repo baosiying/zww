@@ -1,27 +1,34 @@
 package cn.pojo;
 
-//ÓÃ»§¶ÔÏó
+//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 public class Users {
 	private int uid;
 	private String uaccount;
 	private String upassword;
 	private String uname;
-	//ÓÃ»§Í·Ïñ
+	//ï¿½Ã»ï¿½Í·ï¿½ï¿½
 	private String uimage;
-	//ÓÃ»§ÓµÓĞµÄÔÂÆ±Êı
+	//ï¿½Ã»ï¿½Óµï¿½Ğµï¿½ï¿½ï¿½Æ±ï¿½ï¿½
 	private int monthlynumber;
-	//ÓÃ»§ÓµÓĞµÄÍÆ¼öÆ±Êı
+	//ï¿½Ã»ï¿½Óµï¿½Ğµï¿½ï¿½Æ¼ï¿½Æ±ï¿½ï¿½
 	private int recommend;
-	//ÓÃ»§µÈ¼¶£¨1ÎªÆÕÍ¨ÓÃ»§£¬2Îª»áÔ±£©
+	//ï¿½Ã»ï¿½ï¿½È¼ï¿½ï¿½ï¿½1Îªï¿½ï¿½Í¨ï¿½Ã»ï¿½ï¿½ï¿½2Îªï¿½ï¿½Ô±ï¿½ï¿½
 	private int ugrade;
-	//ÓÃ»§¾­Ñé£¨»áÔ±²ÅÓĞÓÃ»§¾­Ñé£¬»áÔ±´Ó1ÀÛ¼Óµ½µ½31»áÔ±½áÊø¡£¶øÆÕÍ¨ÓÃ»§Îª0£©
+	//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½é£¨ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½é£¬ï¿½ï¿½Ô±ï¿½ï¿½1ï¿½Û¼Óµï¿½ï¿½ï¿½31ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½Ã»ï¿½Îª0ï¿½ï¿½
 	private int egrade;
-	//ÓÃ»§µÄÊé¼®ÊÕ²Ø
+	//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½é¼®ï¿½Õ²ï¿½
 	private String ucollectb;
-	//ÓÃ»§µÄÍÆ¼öÊé¼®
+	//ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½é¼®
 	private String urb;
 	public int getUid() {
 		return uid;
+	}
+	private String utime;
+	public String getUtime() {
+		return utime;
+	}
+	public void setUtime(String utime) {
+		this.utime = utime;
 	}
 	public void setUid(int uid) {
 		this.uid = uid;

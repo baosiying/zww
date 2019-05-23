@@ -68,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<!-- 未登录状态 -->
 					<div class="user">
 						<a href="login/index.html" >
-							<img src="image/200.gif.png" >
+							<img src="image/18.png" >
 						</a>
 						<ul class="drop-menu">
 							

@@ -33,4 +33,43 @@ public class UsersServiceImpl implements UsersService{
 		return u;
 	}
 
+	 //注册时检测用户名是否存在
+	public boolean register(String uname) throws Exception {
+		Connection conn = DBhelper.getConnection();
+		boolean flag = false;
+		try {
+			conn.setAutoCommit(false);
+			flag= dao.register(uname, conn);
+			conn.commit();
+		} catch (Exception e) {
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		}finally{
+			DBhelper.closeConnection(conn);
+		}
+		return flag;
+	}
+
+	public boolean saveUser(Users u) throws Exception {
+		Connection conn = DBhelper.getConnection();
+		boolean flag = false;
+		try {
+			conn.setAutoCommit(false);
+			flag = dao.saveUser(u, conn);
+			conn.commit();
+		} catch (Exception e) {
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+		}finally{
+			DBhelper.closeConnection(conn);
+		}
+		return flag;
+	}
+
 }

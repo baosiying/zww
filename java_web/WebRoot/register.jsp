@@ -41,6 +41,19 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
     .log-con  .cmn-char-code .verifyimg{ height: 46px; width: 112px;}
     .log-btn .btn-submit{ height: 46px;}
     .gray-head .main h1.zl-logo{ margin: 0 auto; background:url("image/logo-170728.png")/*tpa=image/logo-170728.png*/ center center no-repeat; }
+    
+    <!--密码强度样式-->
+ .pwd{width:50px;height:30px;line-height:14px;padding-top:2px;} 
+.pwd_f{color:#BBBBBB;} 
+.pwd_c{background-color:#F3F3F3;border-top:1px solid #D0D0D0;border-bottom:1px solid #D0D0D0;border-left:1px solid #D0D0D0;} 
+.pwd_Weak_c{background-color:#FF4545;border-top:1px solid #BB2B2B;border-bottom:1px solid #BB2B2B;border-left:1px solid #BB2B2B;} 
+.pwd_Medium_c{background-color:#FFD35E;border-top:1px solid #E9AE10;border-bottom:1px solid #E9AE10;border-left:1px solid #E9AE10;} 
+.pwd_Strong_c{background-color:#3ABB1C;border-top:1px solid #267A12;border-bottom:1px solid #267A12;border-left:1px solid #267A12;} 
+.pwd_c_r{border-right:1px solid #D0D0D0;} 
+.pwd_Weak_c_r{border-right:1px solid #BB2B2B;} 
+.pwd_Medium_c_r{border-right:1px solid #E9AE10;} 
+.pwd_Strong_c_r{border-right:1px solid #267A12;} 
+    
     </style>
 
 
@@ -93,7 +106,7 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
   					var result = xmlHttp.responseText;
   					//去掉空格
   					result = result.trim();
-  					var div = document.getElementById("dname");
+  					var div = document.getElementById("content");
   					if(result=="true"){
   						div.innerHTML="用户名被占用";
   						div.style.color="red";
@@ -114,7 +127,82 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
 				document.getElementById("photodata").value=data;
 			};
 		}
+		
+		
+		   //验证码的更新调用函数
+		function changeImg(obj){
+	       //每次传过去的地址不一样，局部刷新验证码，使用感更好，保监会重新加载整个页面
+	       obj.src="img?"+new Date().getTime();
+	}
 	
+
+
+/*
+1. 如果输入的密码位数少于5位，那么就判定为弱。
+
+2. 如果输入的密码只由数字、小写字母、大写字母或其它特殊符号当中的一种组成，则判定为弱。
+
+3. 如果密码由数字、小写字母、大写字母或其它特殊符号当中的两种组成，则判定为中。
+
+4. 如果密码由数字、小写字母、大写字母或其它特殊符号当中的三种以上组成，则判定为强。
+*/
+
+       //密码强度的调用函数
+         function CheckIntensity(pwd){ 
+                var Mcolor,Wcolor,Scolor,Color_Html; 
+                var m=0; 
+                var Modes=0; 
+                //拿到输入框的长度进行循环
+                for(i=0; i<pwd.length; i++){ 
+                       var charType=0; 
+                       var t=pwd.charCodeAt(i);
+                       //表示是数字，将字符类型置为1 
+                     if(t>=48 && t <=57){charType=1;} 
+                     //表示是小写字母，将字符类型置为2 
+                      else if(t>=65 && t <=90){charType=2;} 
+                      //表示是大写字母，将字符类型置为4 
+                      else if(t>=97 && t <=122){charType=4;} 
+                      else{charType=4;} 
+                      Modes |= charType; 
+                    } 
+            for(i=0;i<4;i++){ 
+                 if(Modes & 1){m++;} 
+                        Modes>>>=1; 
+             } 
+            if(pwd.length<=4){m=1;} 
+            if(pwd.length<=0){m=0;} 
+            switch(m){ 
+                  case 1 : 
+                       Wcolor="pwd pwd_Weak_c"; 
+                       Mcolor="pwd pwd_c"; 
+                       Scolor="pwd pwd_c pwd_c_r"; 
+                       Color_Html="弱"; 
+                         break; 
+                  case 2 : 
+                      Wcolor="pwd pwd_Medium_c"; 
+                      Mcolor="pwd pwd_Medium_c"; 
+                      Scolor="pwd pwd_c pwd_c_r"; 
+                      Color_Html="中"; 
+                         break; 
+                  case 3 : 
+                      Wcolor="pwd pwd_Strong_c"; 
+                      Mcolor="pwd pwd_Strong_c"; 
+                      Scolor="pwd pwd_Strong_c pwd_Strong_c_r"; 
+                      Color_Html="强"; 
+                        break; 
+                default : 
+                    Wcolor="pwd pwd_c"; 
+                    Mcolor="pwd pwd_c pwd_f"; 
+                    Scolor="pwd pwd_c pwd_c_r"; 
+                    Color_Html="无"; 
+                    break; 
+             } 
+              document.getElementById('pwd_Weak').className=Wcolor; 
+              document.getElementById('pwd_Medium').className=Mcolor; 
+              document.getElementById('pwd_Strong').className=Scolor; 
+              document.getElementById('pwd_Medium').innerHTML=Color_Html; 
+} 
+
 	</script>
 	
  </head>
@@ -129,28 +217,42 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
   
   <div class="reg-main">
   	
-    <form action="register" method="post" id="logForm"  class="valid-form"   ignoreAutoCheckEvent="true" target="logFormIframe">
+    <form action="register" method="post" id="logForm"  class="valid-form" enctype="multipart/form-data">
 
      <div class="reg-con log-con" align="center">
            <li>
-                <img id="myimg"  width="200px" height="200px"/ >
+                <img id="myimg"  width="200px" height="200px" name="myimg"/ >
             </li>
      
      </div>
       <div class="reg-con log-con">
               	
       	<ul>
-            <li>
-              <input type="text" class="txt" name="username" reqmsg="用户名/手机号/信箱" datatype="text" maxlength="30" placeholder="用户名/手机号/信箱" focusmsg="用户名/手机号/信箱" autocomplete="off">
+      	
+             <li>
+                  <div>
+                      <input type="text" class="txt" name="uname"   id="uname" maxlength="30" placeholder="用户名" onblur="registerByPost()"><div id="content" style="display:inline" width="100px" height="100px"></div>
+                </div>
             </li>
             
             <li>
-              <input class="txt" type="password" name="password"  datatype="text"reqmsg="密码" errmsg="请填写密码" placeholder="密码">
+            <div>
+                 <!-- 当按键离开时的onkeyup事件 -->
+                   <input class="txt" type="password" name="upassword"  id="upassword"   placeholder="密码"  onKeyUp="CheckIntensity(this.value)">
+                           <!-- 密码强度设置成表格 -->
+                           <table border="0" cellpadding="0" cellspacing="0"> 
+                                      <tr align="center"> 
+                                     <td id="pwd_Weak" class="pwd pwd_c" width="50px" height="20px">&nbsp;</td> 
+                                     <td id="pwd_Medium" class="pwd pwd_c pwd_f" width="50px" height="20px">无</td> 
+                                     <td id="pwd_Strong" class="pwd pwd_c pwd_c_r" width="50px" height="20px">&nbsp;</td> 
+                                    </tr> 
+                           </table> 
+                 </div>
             </li>
-
-                        <li>
+              
+               <li>
             	<div class="cmn-char-code">
-                	<input type="text" class="txt" name="charcode" emel="#char-code-err" reqmsg="验证码" errmsg="验证码为5位" datatype="text" maxlength="5" placeholder="验证码" autocomplete="off"><img src="image/verify.html.png" >
+                	<input type="text" class="txt" name="clientCode" emel="#char-code-err" reqmsg="验证码" errmsg="验证码为5位" datatype="text" maxlength="5" placeholder="验证码" autocomplete="off"><img src="img" onclick="changeImg(this)"/>
                 </div>
               	<em id="char-code-err"></em>
             </li>
@@ -158,6 +260,7 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
                      图&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;像:
                       <a href="javascript:;" class="a-upload">
                       <input type="file" name="photo" onchange="upload(this)"/>
+                      <input type="hidden" name="photodata" id="photodata"/>
               </a>
             </li>
                        <li>

@@ -25,4 +25,39 @@ public class UsersDaoImpl implements UsersDao{
 		  return u;
 	}
 
+	 //注册时检测用户名是否存在
+	public boolean register(String uname, Connection conn) throws Exception {
+		String sql="select * from users where uname=?";
+		PreparedStatement ps=conn.prepareStatement(sql);
+		ps.setString(1, uname);
+		ResultSet rs=ps.executeQuery();
+		if(rs.next()){
+			return true;
+		}
+		return false;
+	}
+
+	//保存用户
+	public boolean saveUser(Users u, Connection conn) throws Exception {
+		String sql="insert into users(uaccount,uname,upassword,uimage,monthlynumber,recommend,ugrade,egrade,ucollectb,urb,utime) values(?,?,?,?,?,?,?,?,?,?,?)";
+		PreparedStatement ps=conn.prepareStatement(sql);
+		ps.setString(1, u.getUaccount());
+		ps.setString(2, u.getUname());
+		ps.setString(3, u.getUpassword());
+		ps.setString(4, u.getUimage());
+		ps.setInt(5, u.getMonthlynumber());
+		ps.setInt(6, u.getRecommend());
+		ps.setInt(7, u.getUgrade());
+		ps.setInt(8, u.getEgrade());
+		ps.setString(9,u.getUcollectb());
+		ps.setString(10, u.getUrb());
+		ps.setString(11, u.getUtime());
+		int n=ps.executeUpdate();
+		if(n>0){
+			return true;
+		}
+		System.out.println("ccc");
+		return false;
+	}
+
 }

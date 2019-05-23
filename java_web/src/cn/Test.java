@@ -18,6 +18,8 @@ public class Test {
 		//查询用户
 		UsersService s=new UsersServiceImpl();
 		System.out.println(s.selectUsersByUname("aaa"));
+		System.out.println(b.selectBookTypeById(2));
+		System.out.println(b.selectBookTypeById(2));
 	}
 
 }

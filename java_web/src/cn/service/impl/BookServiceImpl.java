@@ -77,6 +77,50 @@ public class BookServiceImpl implements BookService{
 			}
 			return type;
 		}
+
+		
+		public List<Book> selectBookTypeId(int tid) throws Exception {
+			Connection con=DBhelper.getConnection();
+			List<Book> list=null;
+			try {
+				con.setAutoCommit(false);
+				list=dao.selectBookTypeId(tid, con);
+				con.commit();
+			} catch (Exception e) {
+				try {
+					con.rollback();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				e.printStackTrace();
+			}finally{
+				DBhelper.closeConnection(con);
+			}
+			
+			return list;
+		}
+
+		//查所有书
+		public List<Book> selectAllBook() throws Exception {
+			Connection con=DBhelper.getConnection();
+			List<Book> list=null;
+			try {
+				con.setAutoCommit(false);
+				list=dao.selectAllBook(con);
+				con.commit();
+			} catch (Exception e) {
+				try {
+					con.rollback();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				e.printStackTrace();
+			}finally{
+				DBhelper.closeConnection(con);
+			}
+			
+			return list;
+		}
 	
 	
 	}

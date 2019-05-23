@@ -2,11 +2,16 @@ package cn.web.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import cn.pojo.Book;
+import cn.service.BookService;
+import cn.service.impl.BookServiceImpl;
 
 public class shukuservlet extends HttpServlet {
 
@@ -37,7 +42,7 @@ public class shukuservlet extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		this.doPost(request, response);
+		    this.doPost(request, response);
 	}
 
 	/**
@@ -52,7 +57,32 @@ public class shukuservlet extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println(request.getAttribute("bid"));
+		List<Book> list=null; 
+		BookService b=new BookServiceImpl();
+		int a=Integer.parseInt(request.getParameter("tid"));
+		System.out.println(a);
+		String type=null;
+		if(a==0){
+			try {
+				list=b.selectAllBook();
+				type="È«²¿";
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else{
+			try {
+				list=b.selectBookTypeId(a);
+				type=b.selectBookTypeById(a);
+				System.out.println(type);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		request.setAttribute("allbooklist", list);
+		request.setAttribute("allbooktype", type);
+		request.getRequestDispatcher("MyJsp.jsp").forward(request, response);
+		
 	}
 
 	/**

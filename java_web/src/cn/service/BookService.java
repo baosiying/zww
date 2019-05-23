@@ -12,4 +12,10 @@ public interface BookService {
 	public abstract java.util.List<Book> selectBookById(int bid) throws Exception;
 	//鏍规嵁bid鏌ヨ鍑轰功绫嶇殑绫诲瀷
 	public abstract String selectBookTypeById(int bid) throws Exception;
+	
+	//根据书的类型id获得
+	public List<Book> selectBookTypeId(int tid) throws Exception;
+	//查所有书
+	public List<Book> selectAllBook() throws Exception;
+	
 }

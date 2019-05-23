@@ -3,6 +3,7 @@ package cn.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,7 +88,72 @@ public class BookDaoImpl implements BookDao{
 			}
 			return type;
 		}
-	
+
+
+		//根据书的类型id获得
+		public List<Book> selectBookTypeId(int tid, Connection conn) throws Exception {
+			PreparedStatement ps=null;
+			ResultSet rs=null;
+			List<Book> list=new ArrayList<Book>();
+			String sql="select * from book where type=?";
+			try {
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, tid);
+				rs=ps.executeQuery();
+				while(rs.next()){
+					Book b=new Book();
+					b.setBid(rs.getInt("bid"));
+					b.setBname(rs.getString("bname"));
+					b.setWriter(rs.getString("writer"));
+					b.setBreif(rs.getString("breif"));
+					b.setType(rs.getInt("type"));
+					b.setFinish(rs.getString("finish"));
+					b.setStarttime(rs.getString("starttime"));
+					b.setEndtime(rs.getString("endtime"));
+					b.setBpermission(rs.getInt("bpermission"));
+					b.setMonthlynumber(rs.getInt("monthlynumber"));
+					b.setRecommend(rs.getInt("recommend"));
+					b.setWords(rs.getInt("words"));
+					b.setPicture(rs.getString("picture"));
+					b.setBpath(rs.getString("bpath"));
+					list.add(b);
+		           }
+			}catch (Exception e) {
+				e.printStackTrace();
+			}
+			return list;
+		}
+
+
+		//查所有书
+		public List<Book> selectAllBook(Connection conn) throws Exception {
+			Statement sta=null;
+			ResultSet rs=null;
+			List<Book> list=new ArrayList<Book>();
+			sta=conn.createStatement();
+			String sql="select * from book";
+			rs=sta.executeQuery(sql);
+			while(rs.next()){
+				Book b=new Book();
+				b.setBid(rs.getInt("bid"));
+				b.setBname(rs.getString("bname"));
+				b.setWriter(rs.getString("writer"));
+				b.setBreif(rs.getString("breif"));
+				b.setType(rs.getInt("type"));
+				b.setFinish(rs.getString("finish"));
+				b.setStarttime(rs.getString("starttime"));
+				b.setEndtime(rs.getString("endtime"));
+				b.setBpermission(rs.getInt("bpermission"));
+				b.setMonthlynumber(rs.getInt("monthlynumber"));
+				b.setRecommend(rs.getInt("recommend"));
+				b.setWords(rs.getInt("words"));
+				b.setPicture(rs.getString("picture"));
+				b.setBpath(rs.getString("bpath"));
+				list.add(b);
+			}
+			
+			return list;
+		}
 }
 
 

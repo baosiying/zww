@@ -42,15 +42,66 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
 
 <script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
 <script type="text/javascript">
+  
+
 
 $(document).ready(function(){
-	$("#content a").click(function(){
-		$("#content .cur").removeAttr("class");
+	$("#content2 a").click(function(){
+		$("#content2 .cur").removeAttr("class");
 		$(this).attr("class","cur");
 	});
 
 });
 
+$(document).ready(function(){
+	$("#content3 a").click(function(){
+		$("#content3 .cur").removeAttr("class");
+		$(this).attr("class","cur");
+	});
+
+});
+
+$(document).ready(function(){
+	$("#content4 a").click(function(){
+		$("#content4 .cur").removeAttr("class");
+		$(this).attr("class","cur");
+	});
+
+});
+
+$(document).ready(function(){
+	$("#content5 a").click(function(){
+		$("#content5 .cur").removeAttr("class");
+		$(this).attr("class","cur");
+	});
+
+});
+
+
+$(document).ready(function(){
+	$("#content6 a").click(function(){
+		$("#content6 .cur").removeAttr("class");
+		$(this).attr("class","cur");
+	});
+
+});
+
+
+$(document).ready(function(){
+	$("#content7 a").click(function(){
+		$("#content7 .cur").removeAttr("class");
+		$(this).attr("class","cur");
+	});
+
+});
+
+$(document).ready(function(){
+	$("#content8 a").click(function(){
+		$("#content8 .cur").removeAttr("class");
+		$(this).attr("class","cur");
+	});
+
+});
 
 //自己写一个去空格的方法
   		
@@ -78,19 +129,16 @@ $(document).ready(function(){
   			}
   		}
 
- function cx(object){
- $(document).ready(function(){
-	$("#contine a").click(function(){
-		$("#contine .cur").removeAttr("class");
+$(document).ready(function(){
+	$("#content1 a").click(function(){
+		$("#content1 .cur").removeAttr("class");
 		$(this).attr("class","cur");
+        var a=$("#id");
+        xmlHttp.open("GET","shuku?bid="+a,true);
+	    xmlHttp.onreadystatechange=callback;
+		xmlHttp.send();
 	});
-
 });
-            var id= object.id;
-            xmlHttp.open("GET","cxservelt?bid="+id,true);
-			xmlHttp.onreadystatechange=callback;
-			xmlHttp.send();
-  }
 
 
 	function callback(){
@@ -109,16 +157,6 @@ $(document).ready(function(){
 				}
 			}
 		}
- function wordssum(obje) {
-	var obj=obje.id;
-	alert(obj);
-}
-
- function serializing(object) {
-	var obj=object.id;
-	alert(obj);
-}
-
 
 </script>
 </head>
@@ -266,10 +304,10 @@ div.page{ margin-top:20px;}
 				<h2 class="title">书库 <span class="tit-tab"><a href="javascript:" class="cur">男生</a> <a class="girl-cate" href="javascript:if(confirm('http://www.xxs8.com/shuku/index.html'))window.location='http://www.xxs8.com/shuku/index.html'" >女生</a></span></h2>
 				<div class="tag-group">
 		
-		<dl class="pilltags clearfix" id="contine">
+		<dl class="pilltags clearfix"  id="content1">
 			<dt>作品频道:</dt>
 			<dd>
-				<a onclick="cx()" id="0" >全部</a>
+				<a  onclick="cx()" class="cur" id="0" >全部</a>
 							<a onclick="cx(this)" id="1" >新书</a>
 							<a onclick="cx(this)" id="2">武侠</a>
 							<a  onclick="cx(this)" id="3">玄幻</a>
@@ -287,7 +325,7 @@ div.page{ margin-top:20px;}
 						</dd>
 		</dl>
 		
-		<dl class="pilltags clearfix" id="content">
+		<dl class="pilltags clearfix" id="content2">
 			<dt>作品小类:</dt>
 			<dd>
 			<a 					class="cur">全部</a>
@@ -377,14 +415,14 @@ div.page{ margin-top:20px;}
 																				<a   >其他作品</a>   
 												</dd>
 		</dl>
-		<dl class="pilltags clearfix" id="content">
+		<dl class="pilltags clearfix" id="content3">
 			<dt>是否精品</dt>
 			<dd>					<a 						class="cur"
 					>不限</a>
 									<a   >精品作品</a>
 							</dd>
 		</dl>
-		<dl class="pilltags clearfix">
+		<dl class="pilltags clearfix"  id="content4">
 			<dt>作品字数</dt>
 			<dd>			
 			<a 	class="cur"	 onclick="wordssum(this)" id="0">不限</a>
@@ -395,16 +433,16 @@ div.page{ margin-top:20px;}
 															<a  onclick="wordssum(this)" id="5" >200万以上</a>
 										</dd>
 		</dl>
-				<dl class="pilltags clearfix">
+				<dl class="pilltags clearfix" id="content5">
 			<dt>是否完结:</dt>
 			<dd>
-											<a onclick="serializing(this)" id="0"  >不限</a>
+											<a onclick="serializing(this)" id="0"  class="cur"	>不限</a>
 															<a onclick="serializing(this)" id="1"  >连载中</a>
 															<a  onclick="serializing(this)" id="2"  >已完结</a>
 										</dd>
 		</dl>
 				
-		<dl class="pilltags clearfix" id="content">
+		<dl class="pilltags clearfix" id="content6">
 			<dt>更新时间:</dt>
 			<dd> 
 											<a 		class="cur">不限</a>  
@@ -414,7 +452,7 @@ div.page{ margin-top:20px;}
 															<a  >一月内</a>  
 										</dd>
 		</dl>
-		<dl class="pilltags clearfix" id="content">
+		<dl class="pilltags clearfix" id="content7">
 			<dt>排序方式:</dt>
 			<dd> 
 											<a 									class="cur" >默认</a>   
@@ -424,7 +462,7 @@ div.page{ margin-top:20px;}
 										</dd>
 		</dl>
 		
-		<dl class="pilltags clearfix" id="content">
+		<dl class="pilltags clearfix" id="content8">
 			<dt>按首字母:</dt>
 			<dd>
 																					<a 									class="cur">不限</a>

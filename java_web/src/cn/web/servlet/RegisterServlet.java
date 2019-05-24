@@ -74,7 +74,7 @@ public class RegisterServlet extends HttpServlet {
 			   su.upload();
 			   Files fs=su.getFiles();
 			   File f=fs.getFile(0);
-			    path = "image/"+new Date().getTime()+"."+f.getFileExt();
+			    path = "image//"+new Date().getTime()+"."+f.getFileExt();
 			   f.saveAs(path, File.SAVEAS_AUTO);
 		} catch (SmartUploadException e) {
 			e.printStackTrace();
@@ -109,16 +109,33 @@ public class RegisterServlet extends HttpServlet {
 		   String uaccount=ua.getUaccount();
 		   u.setUaccount(uaccount);
 		   UsersService service=new UsersServiceImpl();
-		   boolean f=false;
+		   boolean f1=false;
+		   boolean f2=code.endsWith(clientCode);//验证码判断
+		   UsersService service2=new UsersServiceImpl();
+		   boolean f3 =true;//账号判断
 		   try {
-			    f=service.saveUser(u);
-			    if(f){
-			    	  request.getSession().setAttribute("uname", uname);
-			    	  request.getRequestDispatcher("usermain.jsp").forward(request, response);
+			  f3=service2.register(uname);
+		    } catch (Exception e1) {
+			e1.printStackTrace();
+		    }
+		   if(f3){
+			   request.setAttribute("loginError", "用户名已存在");          // 设置错误属性
+			   request.getRequestDispatcher("registertiaozhuan2.jsp").forward(request, response);
+		   }
+		   if(!f2){
+			   request.setAttribute("loginError", "验证码错误。。。");          // 设置错误属性
+			   request.getRequestDispatcher("registertiaozhuan2.jsp").forward(request, response);
+		   }
+		   try {
+			   if(f2&&!f3){
+			    f1=service.saveUser(u);
+			    if(f1){
+			    	  request.setAttribute("uaccount", uaccount);
+			    	  request.getRequestDispatcher("registertiaozhuan.jsp").forward(request, response);
 			    }else{
-			    	response.sendRedirect("register.jsp");
+			    	  response.sendRedirect("register.jsp");
 			    }
-			    	
+			   }  	
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

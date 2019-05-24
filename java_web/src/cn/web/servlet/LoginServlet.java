@@ -2,11 +2,18 @@ package cn.web.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.jspsmart.upload.File;
+import com.jspsmart.upload.Files;
+import com.jspsmart.upload.Request;
+import com.jspsmart.upload.SmartUpload;
+import com.jspsmart.upload.SmartUploadException;
 
 import cn.pojo.Users;
 import cn.service.UsersService;
@@ -56,35 +63,53 @@ public class LoginServlet extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("------");
+		 
 		    //验证码
 		    String clientCode=request.getParameter("clientCode");
-		    System.out.println(clientCode);
 		   //验证码图片中的内容
 		    String code=request.getSession().getAttribute("code").toString();
-		    System.out.println(code);
 		    //权限按钮
 		    String quanxian=request.getParameter("quanxian");
-		    System.out.println(quanxian);
+		
 		    //用户名
 		     String uname=request.getParameter("uname");
+		    
 		     //密码
 		     String upassword=request.getParameter("upassword");
+	
 		     UsersService service=new UsersServiceImpl();
 		     Users u=null;
-		     //通过用户查询密码
+		     boolean f1=false;//判断账号密码
 		     try {
 				    u=service.selectUsersByUname(uname);
+				    if(u!=null){
+				    String pass=u.getUpassword();
+				    if(upassword.endsWith(pass)){
+				    	f1=true;
+				    }
+				    }
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		     String pass=u.getUpassword();
+		     boolean f2=code.equals(clientCode);//验证码判断
+		     if(!f2){
+				   request.setAttribute("loginError", "验证码错误。。。");          // 设置错误属性
+				   request.getRequestDispatcher("logintiaozhuan.jsp").forward(request, response);
+				   return;
+			 }
+		     if(!f1){
+				   request.setAttribute("loginError", "账号或密码错误");          // 设置错误属性
+				   request.getRequestDispatcher("logintiaozhuan.jsp").forward(request, response);
+				   return;
+			 }
 		    //与数据库比较
-		    if(code.equals(clientCode)&&quanxian==null&&u!=null&&pass.equals(upassword)){
+		    if(f1&f2){
 		    	    request.getSession().setAttribute("uname", uname);
 		    	    request.getRequestDispatcher("usermain.jsp").forward(request,response);
+		    	    return;
 		    }else{
-		    	    response.sendRedirect("login.jsp");
+		    	request.getRequestDispatcher("login.jsp?uname="+uname).forward(request, response); 
+		    	 return;
 		    }
 	}
 		   

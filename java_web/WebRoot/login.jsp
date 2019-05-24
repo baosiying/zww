@@ -1,7 +1,16 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+<%@ page language="java" import="cn.service.*"%>
+<%@ page language="java" import="cn.service.impl.*"%>
+<%@ page language="java" import="cn.pojo.*"%>
+
+<% 
+    String uname =(String)request.getSession().getAttribute("uname");
+    if(uname!=null){
+        UsersService service=new UsersServiceImpl();
+        Users u=service.selectUsersByUname(uname);
+        request.getRequestDispatcher("usermain.jsp?uname="+uname).forward(request, response); 
+	    return;  
+    }
 %>
 
 <!doctype html>
@@ -65,7 +74,7 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
 <body >
 <div class="gray-head">
   <div class="main">
-    <h1 class="zl-logo logo-trans"><a href="../index.htm" >逐浪 zhulang.com</a></h1>
+    <h1 class="zl-logo logo-trans"><a href="index.jsp" >逐浪 zhulang.com</a></h1>
   </div>
 </div>
 <div class="main">
@@ -96,7 +105,7 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
       </div>
       
         <div class="log-btn">
-            <input type="submit" class="btn btn-primary btn-block btn-submit">登录</input>
+            <input type="submit" class="btn btn-primary btn-block btn-submit" value ="登录"></input>
         </div>
        
         <p class="zl-anc">

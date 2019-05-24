@@ -1,11 +1,19 @@
 <%@page import="cn.pojo.Book"%>
 <%@page import="cn.service.impl.BookServiceImpl"%>
+<%@ page language="java" import="cn.service.*"%>
+<%@ page language="java" import="cn.service.impl.*"%>
+<%@ page language="java" import="cn.pojo.*"%>
 <%@page import="cn.service.BookService"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+<% 
+    String uname =(String)request.getSession().getAttribute("uname");
+    String image ="image//18.png";
+    if(uname!=null){
+        UsersService service=new UsersServiceImpl();
+        Users u=service.selectUsersByUname(uname);
+        image = u.getUimage();  
+    }
 %>
 
 <!doctype html>
@@ -117,8 +125,8 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=https://s.zhulan
           </script>
           <!-- 已登录状态 -->
           <div class="user">
-            <a href="http://www.zhulang.com/user/center/index.html" class="avt" data-drop="user">
-              <img src="image/19.png" alt="用户头像">
+            <a href="login.jsp" class="avt" data-drop="user">
+              <img src="<%=image %>" alt="用户头像">
               <em class="bge msgnum"></em>
             </a>
             <ul class="drop-menu">
@@ -170,7 +178,7 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=https://s.zhulan
 	   
 		当前位置： 
 		 
-							<a href="javascript:if(confirm('http://www.zhulang.com/category/index/class/02.html'))window.location='http://www.zhulang.com/category/index/class/02.html'" >
+							<a href="" >
 					${type}				</a>  &gt;   
 					 
 							<strong>${book.bname}</strong> 
@@ -236,7 +244,7 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=https://s.zhulan
 						</p>
 					</div><!--end cover-txt-->
 					<div class="cover-btn clearfix">
-												<a href="javascript:if(confirm('http://book.zhulan�ڷ������ϴ���?'))window.location='http://book.zhulang.com/382194/'" >开始阅读</a>
+												<a href="allchapter.jsp?bid=<%=bid %>" >开始阅读</a>
 											
 												<a href="javascript:;" class="btn btn-default addto-shelf-btn" data-post="book_id=382194" data-api="http://www.zhulang.com/app/shelf/add.html" data-bid="382194">加入书架</a>
 												

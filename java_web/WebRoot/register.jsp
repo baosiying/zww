@@ -209,7 +209,7 @@ h1.zl-logo {background-image: url("image/logo-170728.png")/*tpa=image/logo-17072
   <body>
  <div class="gray-head">
   <div class="main">
-    <h1 class="zl-logo logo-trans"><a href="../index.htm" >逐浪 zhulang.com</a></h1>
+    <h1 class="zl-logo logo-trans"><a href="index.jsp" >逐浪 zhulang.com</a></h1>
   </div>
 </div>
 

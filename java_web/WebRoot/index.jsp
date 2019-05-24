@@ -1,4 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="cn.service.*"%>
+<%@ page language="java" import="cn.service.impl.*"%>
+<%@ page language="java" import="cn.pojo.*"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -22,22 +25,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script src="js/jquery-1-4dc834d16a.11.1.js" ></script>
 	</head>
 
+<% 
+    String uname =(String)request.getSession().getAttribute("uname");
+    String image ="image//18.png";
+    if(uname!=null){
+        UsersService service=new UsersServiceImpl();
+        Users u=service.selectUsersByUname(uname);
+        image = u.getUimage();  
+    }
+%>
 	<body>
 		<div class="wrap">
 			
 						<link rel="stylesheet" href="css/ba4a1388.css" >
 <div class="main topbar" id="topbar">
 	<div class="main">
-				<h1><a href="index.htm" >逐浪小说</a></h1>
+				<h1><a href="index.jsp" >逐浪小说</a></h1>
 				
 				<ul class="topnav">
-					<li><a href="shuku/index.html" >书库</a></li>
+					<li><a href="MyJsp.jsp" >书库</a></li>
 					
-					<li><a href="comic.html" >动漫</a></li>
-					<li><a href="javascript:if(confirm('http://www.xxs8.com/'))window.location='http://www.xxs8.com/'" >新小说吧</a></li>
-					<li><a href="fl/fltx.html-v=201903.htm" >作者福利</a></li>
-					<li><a href="login/index.html" >作家专区</a></li>
-					<li class="app"><a href="app/index.htm" ><span>App下载</span></a>
+					<li><a href="http://www.zhulang.com/comic.html" >动漫</a></li>
+					<li><a href="http://www.xxs8.com/" >新小说吧</a></li>
+					<li><a href="http://www.zhulang.com/fl/v2019/index.html?v=2019" >作者福利</a></li>
+					<li><a href="login.jsp" >作家专区</a></li>
+					<li class="app"><a href="http://www.zhulang.com/app/" ><span>App下载</span></a>
 						<ul class="drop-menu">
 							<li>
 								<a href="app/index.htm" ><span>逐浪小说</span></a>
@@ -47,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</li>
 						</ul>
 					</li>
-					<li ><a href="javascript:if(confirm('http://pay.zhulang.com/pay/index.html'))window.location='http://pay.zhulang.com/pay/index.html'" >充值</a></li>
+					<li ><a href="http://pay.zhulang.com/pay/index.html" >充值</a></li>
 				</ul>
 
 				        <div  class="topsch" id="topsch">
@@ -67,13 +79,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </script>
           <!-- 已登录状态 -->
           <div class="user">
-            <a href="http://www.zhulang.com/user/center/index.html" class="avt" data-drop="user">
-              <img src="image/19.png" alt="用户头像">
+            <a href="login.jsp" class="avt" data-drop="user">
+              <img src="<%=image %>" alt="用户头像" >
               <em class="bge msgnum"></em>
             </a>
             <ul class="drop-menu">
               <li>
-                <a href="http://www.zhulang.com/user/center/index.html">
+                <a href="login.jsp">
                   <span></span>
                                   </a>
               </li>

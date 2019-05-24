@@ -59,7 +59,7 @@ public class TopschServlet extends HttpServlet {
 	 */
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		   String bname= request.getParameter("bname");
+		    String bname= request.getParameter("bname");
 			BookService b=new BookServiceImpl();
 			System.out.println(bname);
 			List<Book> list=b.selectStudentByName(bname);

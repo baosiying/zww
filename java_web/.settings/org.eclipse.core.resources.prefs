@@ -1,6 +1,12 @@
 eclipse.preferences.version=1
+encoding//WebRoot/bookmain.jsp=UTF-8
+encoding//WebRoot/js/book.js=UTF-8
+encoding//WebRoot/registertiaozhuan.jsp=UTF-8
 encoding//WebRoot/serach.jsp=UTF-8
 encoding//src/cn/dao/UsersDao.java=UTF-8
+encoding//src/cn/dao/impl/BookDaoImpl.java=UTF-8
+encoding//src/cn/dao/impl/UsersDaoImpl.java=UTF-8
 encoding//src/cn/pojo/Users.java=UTF-8
 encoding//src/cn/web/servlet/LoginServlet.java=UTF-8
-encoding//src/cn/web/servlet/TopschServlet.java=UTF-8
+encoding//src/cn/web/servlet/RegisterServlet.java=UTF-8
+encoding//src/method/allchapter.java=UTF-8

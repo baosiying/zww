@@ -9,7 +9,7 @@ import cn.pojo.Users;
 
 public class UsersDaoImpl implements UsersDao{
 
-	//根据传过来的用户名进行查询是否存在此人
+	//鏍规嵁浼犺繃鏉ョ殑鐢ㄦ埛鍚嶈繘琛屾煡璇㈡槸鍚﹀瓨鍦ㄦ浜�
 	public Users selectUsersByUname(String uname, Connection conn)
 			throws Exception {
 		  String sql="select * from users where uname=?";
@@ -19,13 +19,23 @@ public class UsersDaoImpl implements UsersDao{
 		  Users u=null;
 		  if(rs.next()){
 			  u=new Users();
+			  u.setUid(rs.getInt("uid"));
+			  u.setUaccount(rs.getString("uaccount"));
 			  u.setUname(rs.getString("uname"));
 			  u.setUpassword(rs.getString("upassword"));
+			  u.setUimage(rs.getString("uimage"));
+			  u.setMonthlynumber(rs.getInt("monthlynumber"));
+			  u.setRecommend(rs.getInt("recommend"));
+			  u.setUgrade(rs.getInt("ugrade"));
+			  u.setEgrade(rs.getInt("egrade"));
+			  u.setUcollectb(rs.getString("ucollectb"));
+			  u.setUrb(rs.getString("urb"));
+			  u.setUtime(rs.getString("utime"));
 		  }
 		  return u;
 	}
 
-	 //注册时检测用户名是否存在
+	 //娉ㄥ唽鏃舵娴嬬敤鎴峰悕鏄惁瀛樺湪
 	public boolean register(String uname, Connection conn) throws Exception {
 		String sql="select * from users where uname=?";
 		PreparedStatement ps=conn.prepareStatement(sql);
@@ -37,7 +47,7 @@ public class UsersDaoImpl implements UsersDao{
 		return false;
 	}
 
-	//保存用户
+	//淇濆瓨鐢ㄦ埛
 	public boolean saveUser(Users u, Connection conn) throws Exception {
 		String sql="insert into users(uaccount,uname,upassword,uimage,monthlynumber,recommend,ugrade,egrade,ucollectb,urb,utime) values(?,?,?,?,?,?,?,?,?,?,?)";
 		PreparedStatement ps=conn.prepareStatement(sql);

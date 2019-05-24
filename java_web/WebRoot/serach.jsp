@@ -1,10 +1,17 @@
 <%@page import="cn.pojo.Book"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+<%@ page language="java" import="cn.service.*"%>
+<%@ page language="java" import="cn.service.impl.*"%>
+<%@ page language="java" import="cn.pojo.*"%>
+<% 
+    String uname =(String)request.getSession().getAttribute("uname");
+    String image ="image//18.png";
+    if(uname!=null){
+        UsersService service=new UsersServiceImpl();
+        Users u=service.selectUsersByUname(uname);
+        image = u.getUimage();  
+    }
 %>
 
 <!doctype html>
@@ -20,8 +27,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>逐浪小说_搜索结果</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="renderer" content="webkit" />
-    <meta name="keywords" content="万古狂尊,小说">
-    <meta name="description" content="万古狂尊小说在线下载阅读">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
     <link rel="icon" type="image/vnd.microsoft.icon" href="http://www.zhulang.com/favicon.ico"/>
     <link rel="stylesheet" href="css/common.css?v=11661" type="text/css">
     <link rel="stylesheet" href="css/ucenter.css?v=11661" type="text/css">
@@ -49,32 +56,28 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
 	<link rel="stylesheet" href="css/ba4a1388.css">
   <div class="topbar minitype" id="topbar"> 
 
-  <div class="main">
-        <h1><a href="http://www.zhulang.com">逐浪小说</a></h1>
-        
-        <ul class="topnav">
-          
-          <li  ><a href="http://www.zhulang.com">首页</a></li>
- 
-          <li ><a href="http://www.zhulang.com/shuku/index.html">书库</a></li>
-         
-          <li  ><a href="http://www.zhulang.com/comic/index.html">动漫</a></li>
-         
-          <li><a href="http://www.xxs8.com" target="_blank">新小说吧</a></li>
-          <li><a href="http://www.zhulang.com/fl/fltx.html?v=201903"  target="_blank">作者福利</a></li>
-          <li><a href="https://writer.zhulang.com/index/index.html" target="_blank">作家专区</a></li>
-          <li class="app"><a href="http://www.zhulang.com/app/" target="_blank" data-drop="app"><span>App下载</span></a>
-            <ul class="drop-menu">
-              <li>
-                <a href="http://www.zhulang.com/app/" target="_blank"><span>逐浪小说</span></a>
-              </li>
-              <li>
-                <a href="https://writer.zhulang.com/invite/app.html?invite=111" target="_blank"><span>写作助手</span></a>
-              </li>
-            </ul>
-          </li>
-          <li ><a href="http://pay.zhulang.com/pay/index.html">充值</a></li>
-        </ul>
+<div class="main">
+				<h1><a href="index.jsp" >逐浪小说</a></h1>
+				
+				<ul class="topnav">
+					<li><a href="MyJsp.jsp" >书库</a></li>
+					
+					<li><a href="http://www.zhulang.com/comic.html" >动漫</a></li>
+					<li><a href="http://www.xxs8.com/" >新小说吧</a></li>
+					<li><a href="http://www.zhulang.com/fl/v2019/index.html?v=2019" >作者福利</a></li>
+					<li><a href="login.jsp" >作家专区</a></li>
+					<li class="app"><a href="http://www.zhulang.com/app/" ><span>App下载</span></a>
+						<ul class="drop-menu">
+							<li>
+								<a href="app/index.htm" ><span>逐浪小说</span></a>
+							</li>
+							<li>
+								<a href="javascript:if(confirm('https://writer.zhulang.com/invite/app.html?invite=111'))window.location='https://writer.zhulang.com/invite/app.html?invite=111'" ><span>写作助手</span></a>
+							</li>
+						</ul>
+					</li>
+					<li ><a href="http://pay.zhulang.com/pay/index.html" >充值</a></li>
+				</ul>
 
         <div  class="topsch" id="topsch">
           <form action="topsch"   method="post">
@@ -93,8 +96,8 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
           </script>
           <!-- 已登录状态 -->
           <div class="user">
-            <a href="http://www.zhulang.com/user/center/index.html" class="avt" data-drop="user">
-              <img src="image/19.png" alt="用户头像">
+            <a href="login.jsp" class="avt" data-drop="user">
+              <img src="<%=image %>" alt="用户头像">
               <em class="bge msgnum"></em>
             </a>
             <ul class="drop-menu">
@@ -184,7 +187,7 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
                                     <p class="book-summ">${book.breif}</p>
                                     <div class="btn-grp">
                                         <a class="btn btn-primary addto-shelf-btn" href="javascript:;" data-post="book_id=415816" data-api="http://www.zhulang.com/app/shelf/add.html" data-bid="415816">加入书架</a>
-                                        <a class="btn btn-primary read-now-btn" href="http://book.zhulang.com/415816/" target="_blank">开始阅读</a>
+                                        <a class="btn btn-primary read-now-btn" href="allchapter.jsp?bid=${book.bid}" target="_blank">开始阅读</a>
                                     </div>
                                 </dd>
                             </dl>

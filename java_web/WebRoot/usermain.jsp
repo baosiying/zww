@@ -1,8 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-%>
+<%@ page language="java" import="cn.service.*"%>
+<%@ page language="java" import="cn.service.impl.*"%>
+<%@ page language="java" import="cn.pojo.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!doctype html>
 <!--[if lt IE 7 ]><html class="lowie ie6" lang="zh-cn"><![endif]-->
@@ -10,6 +10,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!--[if IE 8 ]><html class="lowie ie8" lang="zh-cn"><![endif]-->
 <!--[if IE 9 ]><html class="ie9" lang="zh-cn"><![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html class="" lang="zh-cn"><!--<![endif]-->
+
+
+<%
+    String uname = request.getParameter("uname");
+    UsersService service=new UsersServiceImpl();
+    Users u=service.selectUsersByUname(uname);
+    String image = u.getUimage();
+%>
+
 <head>
     <meta charset="utf-8">
     <title>个人中心 - 逐浪 </title>
@@ -59,16 +68,14 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
   <div class="topbar minitype" id="topbar"> 
 
   <div class="main">
-        <h1><a href="http://www.zhulang.com">逐浪小说</a></h1>
+        <h1><a href="index.jsp">逐浪小说</a></h1>
         
         <ul class="topnav">
           
-          <li  ><a href="http://www.zhulang.com">首页</a></li>
+          <li  ><a href="index.jsp">首页</a></li>
  
-          <li ><a href="http://www.zhulang.com/shuku/index.html">书库</a><li><a href="http://www.zhulang.com/comic/index.html">动漫</a></li></li>
-         
-          
-         
+          <li ><a href="http://www.zhulang.com/shuku/index.html">书库</a>
+          <li><a href="http://www.zhulang.com/comic/index.html">动漫</a></li></li>
           <li><a href="http://www.xxs8.com" target="_blank">新小说吧</a></li>
           <li><a href="http://www.zhulang.com/fl/fltx.html?v=201903"  target="_blank">作者福利</a></li>
           <li><a href="https://writer.zhulang.com/index/index.html" target="_blank">作家专区</a></li>
@@ -103,7 +110,7 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
           <!-- 已登录状态 -->
           <div class="user">
             <a href="http://www.zhulang.com/user/center/index.html" class="avt" data-drop="user">
-              <img src="http://thirdqq.qlogo.cn/g?b=oidb&k=MRRCKFoh2sSGjhJPnGnnbA&s=100" alt="用户头像">
+              <img src="<%=image %>" alt="用户头像">
               <em class="bge msgnum"></em>
             </a>
             <ul class="drop-menu">
@@ -156,14 +163,14 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
         	<div class="uinfo">
             	<div class="usr-avatar">
                 	<a href="http://www.zhulang.com/user/account/avatar.html" title="更换头像">
-                        <img class="trans-04s" src="http://thirdqq.qlogo.cn/g?b=oidb&k=MRRCKFoh2sSGjhJPnGnnbA&s=100">
+                        <img class="trans-04s" src="<%=image%>">
                     </a>
                 </div>
             	<p class="usr-name">
-                	<span title="小海豚_67604708">小海豚_67604708</span>
+                	<span title="小海豚_67604708"><%=u.getUname()%></span>
                                     </p>
                 <p class="usr-reg-time">
-                	<span>注册时间：2019-05-16 23:42</span>
+                	<span>注册时间：<%=u.getUtime()%></span>
                 </p>
             </div>
             <div class="spliter" style="height:6px;"></div>
@@ -207,23 +214,23 @@ h1.zl-logo {background-image: url(image/logo-170728.png)!important;}
     	<div class="usr-status">
         	<ul class="bsc-info">
             	<li>
-                帐号：/QQ:8a3c7f8cfbf80200720ba6b444 
+                帐号：<%=u.getUname()%>
                  <a href="http://pay.zhulang.com/pay/index.html" class="red">升级成为vip</a>                <span class="last-login">
                 上一次登录：2019-05-19 16:08:03                </span>   
                 </li>
 				<li>
                 用户ID：  
-                67604708 <!--活动：加微信<font style="color:#ff0000">zhulang66</font>输入此号免费领取100币-->
+                <%=u.getUaccount()%> <!--活动：加微信<font style="color:#ff0000">zhulang66</font>输入此号免费领取100币-->
                 </li>
                 <li>
                 用户昵称：  
-                                	小海豚_67604708 <a style="color:#ff0000" href="http://www.zhulang.com/user/account/index.html">你有一次设置昵称的机会，请点击设置</a>
+                                	<%=u.getUname()%> <a style="color:#ff0000" href="http://www.zhulang.com/user/account/index.html">你有一次设置昵称的机会，请点击设置</a>
                                 </li>
                 <li>
                 藏书量：容量 300 本，已用 0 本     <a href="http://www.zhulang.com/user/shelf/index.html" class="bluelink">查看我的书架</a>
                 </li>
                                 <li>
-                当前余额：0 逐浪币 0</em> 逐浪奖金币
+                当前余额：<%=u.getMonthlynumber()%> 逐浪币<%=u.getRecommend()%></em> 逐浪奖金币
                                 <a href="http://pay.zhulang.com/pay/index.html" class="red">充值</a>
                 </li>
                 <li>
